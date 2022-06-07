@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="350"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -24,13 +24,15 @@
                        HorizontalAlignment="Center">Проекты</TextBlock>
             <ListView Name="LVProject" 
                       SelectionChanged="LVProject_OnSelectionChanged"
-                      Height="100">
+                      Height="100" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel CanVerticallyScroll="True">
                             <TextBlock Text="{Binding Primary_goal}"
                                        TextWrapping="Wrap"
-                                       Width="200"/>
+                                       Width="200"
+                                       HorizontalAlignment="Center"
+                                       FontSize="16"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -41,19 +43,22 @@
                        HorizontalAlignment="Center">Задания для направлений</TextBlock>
             <ListView Name="LVTaskSubdivixion" 
                       SelectionChanged="LVTaskSubdivixion_OnSelectionChanged"
-                      Height="100"
+                      Height="100" d:ItemsSource="{d:SampleData ItemCount=5}"
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel CanVerticallyScroll="True">
                             <TextBlock Text="{Binding Subdivision.Description, StringFormat={}Для направления: {0}}"
                                        TextWrapping="Wrap"
-                                       
+                                       HorizontalAlignment="Center"
                                        Width="300" 
-                                       FontWeight="Bold"/>
+                                       FontWeight="Bold"
+                                       FontSize="14"/>
                             <TextBlock Text="{Binding Description}"
+                                       HorizontalAlignment="Center"
                                        TextWrapping="Wrap"
-                                       Width="300"/>
+                                       Width="300"
+                                       FontSize="15"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

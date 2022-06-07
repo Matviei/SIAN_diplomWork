@@ -176,9 +176,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sourses\" />
-    <Folder Include="Themes\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Themes\ListViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ScrollBarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AutorizationViews\AutorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

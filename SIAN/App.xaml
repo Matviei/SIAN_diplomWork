@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:SIAN"
              StartupUri="/Views/AutorizationViews/AutorizationWindow.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                 <ResourceDictionary Source="/Themes/ListViewStyle.xaml"/>
+                 <ResourceDictionary Source="/Themes/ScrollBarStyle.xaml"/>
+             </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
     </Application.Resources>
 </Application>
