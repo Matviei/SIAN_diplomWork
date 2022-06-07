@@ -24,7 +24,7 @@
                        HorizontalAlignment="Center">Проекты</TextBlock>
             <ListView Name="LVProject" 
                       SelectionChanged="LVProject_OnSelectionChanged"
-                      Height="100" d:ItemsSource="{d:SampleData ItemCount=5}">
+                      Height="100" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel CanVerticallyScroll="True">
@@ -43,7 +43,7 @@
                        HorizontalAlignment="Center">Задания для направлений</TextBlock>
             <ListView Name="LVTaskSubdivixion" 
                       SelectionChanged="LVTaskSubdivixion_OnSelectionChanged"
-                      Height="100" d:ItemsSource="{d:SampleData ItemCount=5}"
+                      Height="100" 
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>

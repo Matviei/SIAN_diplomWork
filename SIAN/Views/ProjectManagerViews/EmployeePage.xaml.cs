@@ -23,6 +23,8 @@ namespace SIAN.Views.ProjectManagerViews
         public EmployeePage()
         {
             InitializeComponent();
+            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+            CB.ItemsSource = DB_connect.db_connect.db.Status.ToList();
         }
     }
 }

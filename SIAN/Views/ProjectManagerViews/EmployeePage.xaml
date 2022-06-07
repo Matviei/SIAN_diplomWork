@@ -9,6 +9,59 @@
       Title="EmployeePage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Foreground="LightGray"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       FontFamily="Consolas">Сотрудники</TextBlock>
+            <ListView Foreground="LightGray"
+                      FontSize="14"
+                      FontFamily="Consolas" 
+                      Name="LVEmployee"
+                      Width="400">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1"
+                                BorderBrush="LightGray"
+                                Width="380"
+                                Margin="2"
+                                Padding="3">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Surname}"
+                                           Margin="3"/>
+                                <TextBlock Text="{Binding Name}"
+                                           Margin="3"/>
+                            </StackPanel>
+
+                            <TextBlock Text="{Binding Number_Phone,StringFormat={}Номер телефона {0}}"/>
+                            <StackPanel Orientation="Horizontal">
+                                
+                                <TextBlock Text="{Binding Level.Description}"
+                                           Margin="0 0 10 0"/>
+                                <TextBlock Text="{Binding Subdivision.Description}"/>
+                            </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <ComboBox Background="#252525" 
+                      DisplayMemberPath="Description"
+                      Name="CB" 
+                      Foreground="LightGray"></ComboBox>
+            <TextBlock Foreground="LightGray"
+                       FontSize="20"
+                       HorizontalAlignment="Center"
+                       FontFamily="Consolas">Задания</TextBlock>
+        </StackPanel>
+       
     </Grid>
+    
 </Page>
