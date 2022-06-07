@@ -35,8 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +74,71 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DB_connect\db_connect.cs" />
+    <Compile Include="Models\DBTimeManager.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTimeManager.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBTimeManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBTimeManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTimeManager.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Level.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StaffStatus.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subdivision.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tasks.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaskSchedule.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaskSubdivision.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ProjectChartCtor.cs" />
+    <Compile Include="Views\AutorizationViews\AutorizationWindow.xaml.cs">
+      <DependentUpon>AutorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AutorizationViews\PasswordRecoveryPage.xaml.cs">
+      <DependentUpon>PasswordRecoveryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AutorizationViews\VerificationPage.xaml.cs">
+      <DependentUpon>VerificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectManagerViews\EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectManagerViews\ProjectManagerWindow.xaml.cs">
+      <DependentUpon>ProjectManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectManagerViews\StatistikPage.xaml.cs">
+      <DependentUpon>StatistikPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -78,6 +158,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\DBTimeManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBTimeManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DBTimeManager.edmx.diagram">
+      <DependentUpon>DBTimeManager.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,12 +175,49 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DB_connect\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="Sourses\" />
     <Folder Include="Themes\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AutorizationViews\AutorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AutorizationViews\PasswordRecoveryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AutorizationViews\VerificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectManagerViews\EmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectManagerViews\ProjectManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectManagerViews\StatistikPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DBTimeManager.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBTimeManager.Context.cs</LastGenOutput>
+      <DependentUpon>DBTimeManager.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBTimeManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBTimeManager.edmx</DependentUpon>
+      <LastGenOutput>DBTimeManager.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
