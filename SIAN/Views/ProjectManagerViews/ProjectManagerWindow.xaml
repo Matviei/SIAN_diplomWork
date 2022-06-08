@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIAN.Views.ProjectManagerViews"
+        xmlns:extensions="clr-namespace:SIAN.Services"
         mc:Ignorable="d"
          Title="ProjectManagerWindow"  WindowStyle="None"
         Background="Transparent"
@@ -97,7 +98,7 @@
 
             <StackPanel>
                 <RadioButton Content="Проекты"
-                             
+                             extensions:Extensions.Icon="⚙"
                              Padding="5.6 , 3.5 ,8 ,2"
                              FontSize="16"
                              FontWeight="Normal"
