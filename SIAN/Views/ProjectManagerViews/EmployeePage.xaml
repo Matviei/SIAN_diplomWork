@@ -4,64 +4,123 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SIAN.Views.ProjectManagerViews"
+      xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="560" d:DesignWidth="800"
       Title="EmployeePage">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="3">
             <TextBlock Foreground="LightGray"
                        FontSize="20"
                        HorizontalAlignment="Center"
-                       FontFamily="Consolas">Сотрудники</TextBlock>
+                       FontFamily="Consolas"
+                       >
+                Сотрудники
+            </TextBlock>
             <ListView Foreground="LightGray"
                       FontSize="14"
-                      FontFamily="Consolas" 
+                      FontFamily="Consolas"
                       Name="LVEmployee"
-                      Width="400">
+                      Width="300"
+                      SelectionChanged="LVEmployee_OnSelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border BorderThickness="1"
                                 BorderBrush="LightGray"
-                                Width="380"
+                                Width="280"
                                 Margin="2"
                                 Padding="3">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Surname}"
-                                           Margin="3"/>
-                                <TextBlock Text="{Binding Name}"
-                                           Margin="3"/>
-                            </StackPanel>
+                                    <TextBlock Text="{Binding Surname}"
+                                               Margin="3" />
+                                    <TextBlock Text="{Binding Name}"
+                                               Margin="3" />
+                                </StackPanel>
 
-                            <TextBlock Text="{Binding Number_Phone,StringFormat={}Номер телефона {0}}"/>
-                            <StackPanel Orientation="Horizontal">
-                                
-                                <TextBlock Text="{Binding Level.Description}"
-                                           Margin="0 0 10 0"/>
-                                <TextBlock Text="{Binding Subdivision.Description}"/>
-                            </StackPanel>
+                                <TextBlock Text="{Binding Number_Phone,StringFormat={}Номер телефона {0}}" />
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock Text="{Binding Level.Description}"
+                                               Margin="0 0 10 0" />
+                                    <TextBlock Text="{Binding Subdivision.Description}" />
+                                </StackPanel>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <ComboBox Background="#252525" 
-                      DisplayMemberPath="Description"
-                      Name="CB" 
-                      Foreground="LightGray"></ComboBox>
-            <TextBlock Foreground="LightGray"
-                       FontSize="20"
-                       HorizontalAlignment="Center"
-                       FontFamily="Consolas">Задания</TextBlock>
-        </StackPanel>
-       
-    </Grid>
+
+            <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+                <TextBlock Foreground="LightGray"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           FontFamily="Consolas"
+                           Margin="3">
+                    Выберите статус заданий
+                </TextBlock>
+                <ComboBox Background="#252525"
+                          DisplayMemberPath="Description"
+                          Name="CBStatus"
+                          Foreground="LightGray"
+                          Width="150" SelectionChanged="CBStatus_SelectionChanged" />
+            </StackPanel>
+
     
+    <ListView Foreground="LightGray"
+              FontSize="14"
+              FontFamily="Consolas"
+              Name="LVTaskShedule"
+              Width="400" 
+              Margin="10"
+              d:ItemsSource="{d:SampleData ItemCount=5}"
+              Grid.Row="1" Grid.Column="1">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Border BorderThickness="1"
+                        BorderBrush="LightGray"
+                        Width="380"
+                        Margin="2"
+                        Padding="3">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Descriptiom}" 
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Date,StringFormat={}Дата составления задания: {0}}"/>
+                        <TextBlock Text="{Binding SpentTime,StringFormat={}Время затраченное на задание: {0} час.}"/>
+                        <TextBlock Text="{Binding Comment, StringFormat={}Оставленный комментарий {0}}"
+                                   TextWrapping="Wrap" Width="370"/>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+
+            
+            <wpf:CartesianChart Grid.Row="2" Grid.Column="1" Name="TaskSheduleChart" LegendLocation="Bottom" Foreground="LightGray" Background="#252525"  FontSize="14" Margin="10">
+                <wpf:CartesianChart.AxisX>
+                    <wpf:Axis Title="Задание" FontSize="14" Foreground="LightGray" Name="AxisX"></wpf:Axis>
+                </wpf:CartesianChart.AxisX>
+                <wpf:CartesianChart.AxisY>
+                    <wpf:Axis Title="Затраченное время" FontSize="14" Foreground="LightGray"></wpf:Axis>
+                </wpf:CartesianChart.AxisY>
+                <wpf:CartesianChart.DataTooltip>
+                    <wpf:DefaultTooltip BulletSize="20" Foreground="#252525"></wpf:DefaultTooltip>
+                </wpf:CartesianChart.DataTooltip>
+        </wpf:CartesianChart>
+
+
+    </Grid>
+
 </Page>

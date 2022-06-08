@@ -9,7 +9,7 @@
                  <ResourceDictionary Source="/Themes/ListViewStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/ScrollBarStyle.xaml"/>
                 <ResourceDictionary Source="/Themes/ComboBoxStyle.xaml"/>
-
+                <ResourceDictionary Source="/Themes/TitleBarStyle.xaml"/>
 
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>

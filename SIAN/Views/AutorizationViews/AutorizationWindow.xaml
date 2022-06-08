@@ -45,7 +45,9 @@
 
                     <Button Content="🗙" 
                             Padding="0 0 0 3"
-                            Name="ShotdownButton" Click="ShotdownButton_Click"/>
+                            Name="ShotdownButton"
+                            Click="ShotdownButton_Click"
+                            Style="{StaticResource TitleBarStyle}"/>
 
                 </StackPanel>
 

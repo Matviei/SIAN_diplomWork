@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SIAN.Views.ProjectManagerViews"
       xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="560" d:DesignWidth="800"
       Title="StatistikPage"
       >
 
@@ -15,10 +15,13 @@
             <ColumnDefinition Width="350"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
 
-
-        <StackPanel Margin="10">
+        <StackPanel Margin="10" Grid.RowSpan="2">
             <TextBlock Foreground="LightGray"
                        FontSize="20"
                        HorizontalAlignment="Center">Проекты</TextBlock>
@@ -43,7 +46,7 @@
                        HorizontalAlignment="Center">Задания для направлений</TextBlock>
             <ListView Name="LVTaskSubdivixion" 
                       SelectionChanged="LVTaskSubdivixion_OnSelectionChanged"
-                      Height="100" 
+                      Height="150" 
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -68,7 +71,8 @@
                       LegendLocation="Bottom" InnerRadius="100"
                       Width="400"
                       Margin="0 15"
-                      Name="PieChart" >
+                      Name="PieChart" 
+                      Grid.RowSpan="2">
             <wpf:PieChart.ChartLegend>
                 <wpf:DefaultLegend BulletSize="20"
                                    Foreground="LightGray"
