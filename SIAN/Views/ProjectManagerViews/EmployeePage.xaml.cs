@@ -41,32 +41,58 @@ namespace SIAN.Views.ProjectManagerViews
         {
             InitializeComponent();
             LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
-            CBStatus.ItemsSource = DB_connect.db_connect.db.Status.ToList();
             
+            var StattusList = DB_connect.db_connect.db.Status.ToList();
+            StattusList.Insert(0,new Status { Description = "Все"});
+            CBStatus.ItemsSource = StattusList;
+            CBStatus.SelectedIndex= 0;
+
         }
         
         private void LVEmployee_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           Sort();
+            SelectedEmployee = LVEmployee.SelectedItem as Employee;
+            Sort();
+
         }
 
+        private Employee _selecectEmployee;
+
+        public Employee SelectedEmployee
+        {
+            get
+            {
+                return _selecectEmployee;
+            }
+            set
+            {
+                _selecectEmployee=value;
+            }
+        }
         public void Sort()
         {
-            var select = LVEmployee.SelectedItem as Employee;
-            _seriesCollection = EmployeeChartCtor.ChartEmployee(select);
-            var cbList = DB_connect.db_connect.db.TaskSchedule
-                .Where(c => c.ID_employee == select.ID_employee).ToList();
-            TaskSheduleChart.Series = _seriesCollection;
-            if (CBStatus.SelectedIndex > 0)
+            var TaskSheduleList = DB_connect.db_connect.db.TaskSchedule.ToList();
+            if (LVEmployee.SelectedItem != null)
             {
-                var selectCB = (CBStatus.SelectedItem as Status).ID_status;
-                if (select != null)
-                    cbList =
-                        cbList.Where(c =>
-                            c.ID_status == selectCB).ToList();
-            }
+                TaskSheduleList = TaskSheduleList.Where(c => c.ID_employee == SelectedEmployee.ID_employee).ToList();
 
-            LVTaskShedule.ItemsSource = cbList;
+
+                _seriesCollection = EmployeeChartCtor.ChartEmployee(SelectedEmployee);
+
+                if (CBStatus.SelectedIndex > 0)
+                {
+                    var selectCB = (CBStatus.SelectedItem as Status).ID_status;
+                    TaskSheduleList =
+                        TaskSheduleList.Where(c =>
+                            c.ID_status == selectCB).ToList();
+                    _seriesCollection = EmployeeChartCtor.ChartEmployee(SelectedEmployee, selectCB);
+                }
+
+                LVTaskShedule.ItemsSource = TaskSheduleList;
+                TaskSheduleChart.Series = _seriesCollection;
+            }
+            
+
         }
         private void CBStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

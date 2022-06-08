@@ -94,7 +94,7 @@
                         Margin="2"
                         Padding="3">
                     <StackPanel>
-                        <TextBlock Text="{Binding Descriptiom}" 
+                        <TextBlock Text="{Binding Description}" 
                                    HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Date,StringFormat={}Дата составления задания: {0}}"/>
                         <TextBlock Text="{Binding SpentTime,StringFormat={}Время затраченное на задание: {0} час.}"/>
