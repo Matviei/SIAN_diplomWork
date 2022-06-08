@@ -121,6 +121,7 @@
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\EmployeeChartCtor.cs" />
+    <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\ProjectChartCtor.cs" />
     <Compile Include="Views\AutorizationViews\AutorizationWindow.xaml.cs">
@@ -197,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\PasswordLogOnStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\RadioButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

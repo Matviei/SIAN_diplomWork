@@ -13,6 +13,7 @@
                  <ResourceDictionary Source="/Themes/LoginBoxStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/PasswordBoxStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/PasswordLogOnStyle.xaml"/>
+                 <ResourceDictionary Source="/Themes/RadioButtonStyle.xaml"/>
 
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
