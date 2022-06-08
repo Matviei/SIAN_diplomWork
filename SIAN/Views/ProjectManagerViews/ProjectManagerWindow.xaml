@@ -96,7 +96,7 @@
             </Border.Style>
 
             <StackPanel>
-                <RadioButton Content="VPN"
+                <RadioButton Content="Проекты"
                              
                              Padding="5.6 , 3.5 ,8 ,2"
                              FontSize="16"
@@ -106,14 +106,14 @@
                              Name="RBStatiscikPage"
                              Checked="RBStatiscikPage_OnChecked"
                              Cursor="Hand"/>
-                <RadioButton Content="VPN"
+                <RadioButton Content="Сотрудники"
                              FontSize="16"
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Name="RBEmployeePage"
                              Checked="RBEmployeePage_OnChecked"
                              />
-                <RadioButton Content="Settings"
+                <RadioButton Content="..."
                              
                              Padding="5 2.5 8 0"
                              FontSize="16"

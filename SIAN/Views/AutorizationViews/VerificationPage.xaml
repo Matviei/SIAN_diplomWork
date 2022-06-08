@@ -17,12 +17,16 @@
 
         <StackPanel Grid.Row="1" 
                     VerticalAlignment="Center" 
-                    Width="200">
-            <TextBox Style="{StaticResource LoginBoxStyle}"/>
+                    Width="250">
+            <TextBox Style="{StaticResource LoginBoxStyle}"
+                     Margin="10"/>
             <PasswordBox Style="{StaticResource PasswordBoxStyle}"
-                         VerticalContentAlignment="Center"/>
+                         VerticalContentAlignment="Center"
+                         Margin="10"/>
             <Button Content="Войти"
-                    Name="AutorizationButton" Click="AutorizationButton_Click"/>
+                    Name="AutorizationButton" Click="AutorizationButton_Click"
+                    Style="{StaticResource ButtonLogOnStyle}"
+                    Margin="10"/>
 
         </StackPanel>
         <Button Grid.Row="2" 

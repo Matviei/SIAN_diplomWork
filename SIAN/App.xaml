@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/Themes/TitleBarStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/LoginBoxStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/PasswordBoxStyle.xaml"/>
+                 <ResourceDictionary Source="/Themes/PasswordLogOnStyle.xaml"/>
 
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
