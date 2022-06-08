@@ -17,9 +17,10 @@
 
         <StackPanel Grid.Row="1" 
                     VerticalAlignment="Center" 
-                    Width="150">
-            <TextBox/>
-            <TextBox/>
+                    Width="200">
+            <TextBox Style="{StaticResource LoginBoxStyle}"/>
+            <PasswordBox Style="{StaticResource PasswordBoxStyle}"
+                         VerticalContentAlignment="Center"/>
             <Button Content="Войти"
                     Name="AutorizationButton" Click="AutorizationButton_Click"/>
 

@@ -121,6 +121,7 @@
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\EmployeeChartCtor.cs" />
+    <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\ProjectChartCtor.cs" />
     <Compile Include="Views\AutorizationViews\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
@@ -184,6 +185,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\ListViewStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\LoginBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\PasswordBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
