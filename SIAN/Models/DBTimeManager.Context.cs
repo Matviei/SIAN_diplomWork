@@ -35,5 +35,6 @@ namespace SIAN.Models
         public virtual DbSet<Tasks> Tasks { get; set; }
         public virtual DbSet<TaskSchedule> TaskSchedule { get; set; }
         public virtual DbSet<TaskSubdivision> TaskSubdivision { get; set; }
+        public virtual DbSet<Prioritet> Prioritet { get; set; }
     }
 }
