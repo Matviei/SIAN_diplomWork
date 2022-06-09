@@ -17,6 +17,7 @@ using LiveCharts;
 using SIAN.Models;
 using SIAN.Services;
 
+
 namespace SIAN.Views.ProjectManagerViews
 {
     /// <summary>
@@ -97,6 +98,11 @@ namespace SIAN.Views.ProjectManagerViews
         private void CBStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Sort();
+        }
+
+        private void BTDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

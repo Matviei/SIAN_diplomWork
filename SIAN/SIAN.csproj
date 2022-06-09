@@ -133,6 +133,9 @@
     <Compile Include="Views\AutorizationViews\VerificationPage.xaml.cs">
       <DependentUpon>VerificationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmployeeViews\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProjectManagerViews\EmployeePage.xaml.cs">
       <DependentUpon>EmployeePage.xaml</DependentUpon>
     </Compile>
@@ -227,6 +230,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EmployeeViews\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProjectManagerViews\EmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +258,7 @@
       <DependentUpon>DBTimeManager.edmx</DependentUpon>
       <LastGenOutput>DBTimeManager.cs</LastGenOutput>
     </Content>
+    <Resource Include="Sourses\Delete.ico" />
     <Resource Include="Sourses\Add.ico" />
   </ItemGroup>
   <ItemGroup>
