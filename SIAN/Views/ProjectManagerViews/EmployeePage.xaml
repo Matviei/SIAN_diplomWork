@@ -154,7 +154,7 @@
                 <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap"
                            Width="100"
-                           Margin="3 ">Уволить</TextBlock>
+                           Margin="3 ">Удалить сотрудника</TextBlock>
             </StackPanel>
         </Button>
     </Grid>

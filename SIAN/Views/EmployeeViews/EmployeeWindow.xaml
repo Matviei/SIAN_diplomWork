@@ -4,9 +4,130 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIAN.Views.EmployeeViews"
+        xmlns:extensions="clr-namespace:SIAN.Services"
         mc:Ignorable="d"
-        Title="EmployeeWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ProjectManagerWindow"  
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        ResizeMode="CanResize"
+        Width="800"
+        Height="450">
+
+    <DockPanel Background="#1E1E1E" 
+               Margin="7">
+
+        <Border Height="28"
+                Background="#252525"
+                DockPanel.Dock="Top"
+                MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="ProjectManagerMenu"
+                           Foreground="LightGray"
+                           FontFamily="Consolas"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="100 0 0 0"/>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="0 0 4 0"
+                            >
+
+                    <Button Content="🗕" 
+                            Padding="0 0 0 3"
+                            Name="BTMinimazeApp"
+                            Click="BTMinimazeApp_OnClick"
+                            Style="{StaticResource TitleBarStyle}"/>
+                    <Button Content="🗖" 
+                            Padding="0 0 0 3"
+                            Name="BTMAximazeApp"
+                            Click="BTMAximazeApp_OnClick"
+                            Style="{StaticResource TitleBarStyle}"/>
+                    <Button Content="🗙" 
+                            Padding="0 0 0 3"
+                            Name="BTCloseApp"
+                            Click="BTCloseApp_OnClick"
+                            Style="{StaticResource TitleBarStyle}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <Border Width="48" 
+                HorizontalAlignment="Left"
+                Background="#252525">
+
+            <Border.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Border.MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Width)" 
+                                                         To="150"
+                                                         Duration="0:0:.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="Border.MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Width)" 
+                                                         To="48"
+                                                         Duration="0:0:.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <StackPanel>
+                <RadioButton Content="Активные"
+                             extensions:Extensions.Icon="📈" 
+                             Padding="5.6 , 3.5 ,8 ,2"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             
+                             Name="RBStatiscikPage"
+                             Checked="RBStatiscikPage_OnChecked"
+                             Cursor="Hand"/>
+                <RadioButton Content="Сотрудники"
+                             extensions:Extensions.Icon="🙆" 
+                             Padding="5.6 , 3.5 ,8 ,2"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             Name="RBEmployeePage"
+                             Checked="RBEmployeePage_OnChecked"
+                             />
+                <RadioButton Content="..."
+                             
+                             Padding="5 2.5 8 0"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+            </StackPanel>
+        </Border>
+
+        <Frame Name="FrameContent"
+               NavigationUIVisibility="Hidden"/>
+    </DockPanel>
 </Window>

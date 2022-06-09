@@ -46,6 +46,10 @@ namespace SIAN.Views.ProjectManagerViews
             this.WindowState = WindowState.Minimized;
         }
 
+        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
         private void RBStatiscikPage_OnChecked(object sender, RoutedEventArgs e)
         {
             if (RBStatiscikPage.IsChecked == true)
@@ -58,9 +62,6 @@ namespace SIAN.Views.ProjectManagerViews
                 FrameContent.NavigationService.Navigate(new EmployeePage());
         }
 
-        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        
     }
 }

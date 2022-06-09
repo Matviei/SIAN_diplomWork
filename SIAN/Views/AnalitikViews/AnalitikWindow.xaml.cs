@@ -12,17 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SIAN.Views.EmployeeViews
+namespace SIAN.Views.AnalitikViews
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeWindow.xaml
+    /// Логика взаимодействия для AnalitikWindow.xaml
     /// </summary>
-    public partial class EmployeeWindow : Window
+    public partial class AnalitikWindow : Window
     {
-        public EmployeeWindow()
+        public AnalitikWindow()
         {
             InitializeComponent();
         }
+
         private void BTCloseApp_OnClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

@@ -96,6 +96,9 @@
     <Compile Include="Models\Level.cs">
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Prioritet.cs">
+      <DependentUpon>DBTimeManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
@@ -124,6 +127,9 @@
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\ProjectChartCtor.cs" />
+    <Compile Include="Views\AnalitikViews\AnalitikWindow.xaml.cs">
+      <DependentUpon>AnalitikWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AutorizationViews\AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,9 @@
     </Compile>
     <Compile Include="Views\AutorizationViews\VerificationPage.xaml.cs">
       <DependentUpon>VerificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeViews\ActualTasks.xaml.cs">
+      <DependentUpon>ActualTasks.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeeViews\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
@@ -218,6 +227,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AnalitikViews\AnalitikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AutorizationViews\AutorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -227,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AutorizationViews\VerificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeViews\ActualTasks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

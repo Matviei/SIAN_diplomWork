@@ -1,0 +1,46 @@
+﻿<Page x:Class="SIAN.Views.EmployeeViews.ActualTasks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SIAN.Views.EmployeeViews"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ActualTasks"
+      >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+            <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"
+                      Name="LVTaskShedule">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid ></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="LightGray"
+                                BorderThickness="1"
+                                Margin="30">
+                            <StackPanel Margin="15">
+
+                                <TextBlock Text="{Binding Task.Description}"
+                                           FontSize="16"
+                                           HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Description}"/>
+                                <TextBlock Text="{Binding Date, StringFormat={}Дата выдачи задания: {0}}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        
+        
+    </Grid>
+</Page>
