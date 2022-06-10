@@ -37,13 +37,14 @@ namespace SIAN.Views.ProjectManagerViews
             _seriesCollection = value;
             }
         }
-        
+   
+
         public StatistikPage()
         {
             InitializeComponent();
+
             LVProject.ItemsSource = DB_connect.db_connect.db.Tasks.ToList();
         }
-
 
         private void LVProject_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

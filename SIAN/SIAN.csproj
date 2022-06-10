@@ -127,6 +127,9 @@
     <Compile Include="Services\Extensions.cs" />
     <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\ProjectChartCtor.cs" />
+    <Compile Include="Views\AnalitikViews\ActualTaskPage.xaml.cs">
+      <DependentUpon>ActualTaskPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AnalitikViews\AnalitikWindow.xaml.cs">
       <DependentUpon>AnalitikWindow.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\TitleBarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnalitikViews\ActualTaskPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

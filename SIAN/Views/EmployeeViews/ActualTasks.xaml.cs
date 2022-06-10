@@ -20,9 +20,22 @@ namespace SIAN.Views.EmployeeViews
     /// </summary>
     public partial class ActualTasks : Page
     {
+        System.Timers.Timer timer = new System.Timers.Timer();
         public ActualTasks()
         {
             InitializeComponent();
+            timer.Interval = 30000;
+            timer.Elapsed += timer_Elapsed;
+            timer.Start();
+        }
+        /// <summary>
+        /// Обновление из бд каждые n секунд
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
         }
     }
 }

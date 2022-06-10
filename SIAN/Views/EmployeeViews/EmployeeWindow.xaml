@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="ProjectManagerMenu"
+                <TextBlock Text="EmployeeMenu"
                            Foreground="LightGray"
                            FontFamily="Consolas"
                            VerticalAlignment="Center"
@@ -106,7 +106,7 @@
                              Foreground="LightGray"
                              
                              Name="RBStatiscikPage"
-                             Checked="RBStatiscikPage_OnChecked"
+                             
                              Cursor="Hand"/>
                 <RadioButton Content="Сотрудники"
                              extensions:Extensions.Icon="🙆" 
@@ -115,7 +115,7 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Name="RBEmployeePage"
-                             Checked="RBEmployeePage_OnChecked"
+                             
                              />
                 <RadioButton Content="..."
                              
