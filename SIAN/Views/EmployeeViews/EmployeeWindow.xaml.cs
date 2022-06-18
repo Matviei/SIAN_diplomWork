@@ -22,6 +22,7 @@ namespace SIAN.Views.EmployeeViews
         public EmployeeWindow()
         {
             InitializeComponent();
+            RBActualTask.IsChecked = true;
         }
         private void BTCloseApp_OnClick(object sender, RoutedEventArgs e)
         {
@@ -46,6 +47,20 @@ namespace SIAN.Views.EmployeeViews
         private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void RBActualTask_Checked(object sender, RoutedEventArgs e)
+        {
+            FrameEmployeeContent.NavigationService.Navigate(new ActualTasks());
+                
+        }
+
+        private void Exit_Checked(object sender, RoutedEventArgs e)
+        {
+            AutorizationViews.AutorizationWindow AW = new AutorizationViews.AutorizationWindow();
+            this.Close();
+            AW.Show();
+            
         }
     }
 }

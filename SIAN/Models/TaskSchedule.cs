@@ -24,9 +24,12 @@ namespace SIAN.Models
         public int ID_status { get; set; }
         public Nullable<int> ID_prioritet { get; set; }
         public Nullable<System.DateTime> Deadline { get; set; }
+        public Nullable<int> ID_task { get; set; }
     
         public virtual Employee Employee { get; set; }
+        public virtual Prioritet Prioritet { get; set; }
         public virtual Status Status { get; set; }
+        public virtual Tasks Tasks { get; set; }
         public virtual TaskSubdivision TaskSubdivision { get; set; }
     }
 }

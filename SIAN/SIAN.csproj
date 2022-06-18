@@ -102,6 +102,7 @@
     <Compile Include="Models\Role.cs">
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SelectedEmployee.cs" />
     <Compile Include="Models\StaffStatus.cs">
       <DependentUpon>DBTimeManager.tt</DependentUpon>
     </Compile>
@@ -206,7 +207,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\LoginBoxStyle.xaml">
+    <Page Include="Themes\TextBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

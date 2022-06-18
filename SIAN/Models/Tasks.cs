@@ -17,6 +17,7 @@ namespace SIAN.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tasks()
         {
+            this.TaskSchedule = new HashSet<TaskSchedule>();
             this.TaskSubdivision = new HashSet<TaskSubdivision>();
         }
     
@@ -29,6 +30,8 @@ namespace SIAN.Models
         public Nullable<System.DateTime> EndOfWork { get; set; }
     
         public virtual Status Status { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaskSchedule> TaskSchedule { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskSubdivision> TaskSubdivision { get; set; }
     }

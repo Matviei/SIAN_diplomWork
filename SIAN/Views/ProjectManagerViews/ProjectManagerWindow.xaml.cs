@@ -62,6 +62,11 @@ namespace SIAN.Views.ProjectManagerViews
                 FrameContent.NavigationService.Navigate(new EmployeePage());
         }
 
-        
+        private void Exit_Checked(object sender, RoutedEventArgs e)
+        {
+            AutorizationViews.AutorizationWindow AW = new AutorizationViews.AutorizationWindow();
+            this.Close();
+            AW.Show();
+        }
     }
 }

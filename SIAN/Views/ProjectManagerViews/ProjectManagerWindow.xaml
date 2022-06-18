@@ -124,6 +124,16 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+                <RadioButton Content="Выйти"
+                             extensions:Extensions.Icon="🚪" 
+                             VerticalAlignment="Bottom"
+                             Padding="10 , 3.5 ,8 ,2"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             Cursor="Hand"
+                             Margin="0 395 0 0"
+                             Name="Exit" Checked="Exit_Checked"/>
             </StackPanel>
         </Border>
 

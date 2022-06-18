@@ -105,9 +105,9 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              
-                             Name="RBStatiscikPage"
+                             Name="RBActualTask"
                              
-                             Cursor="Hand"/>
+                             Cursor="Hand" Checked="RBActualTask_Checked"/>
                 <RadioButton Content="Сотрудники"
                              extensions:Extensions.Icon="🙆" 
                              Padding="5.6 , 3.5 ,8 ,2"
@@ -124,10 +124,21 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+                
+                <RadioButton Content="Выйти"
+                             extensions:Extensions.Icon="🚪" 
+                             VerticalAlignment="Bottom"
+                             Padding="10 , 3.5 ,8 ,2"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             Command="{Binding ShowSettingsView}" Cursor="Hand"
+                             Margin="0 250 0 0" 
+                             Name="Exit" Checked="Exit_Checked"/>
             </StackPanel>
         </Border>
 
-        <Frame Name="FrameContent"
+        <Frame Name="FrameEmployeeContent"
                NavigationUIVisibility="Hidden"/>
     </DockPanel>
 </Window>

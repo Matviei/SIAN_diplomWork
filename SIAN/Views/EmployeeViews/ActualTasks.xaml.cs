@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIAN.Models;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Windows.Threading;
 
 namespace SIAN.Views.EmployeeViews
 {
@@ -20,22 +25,30 @@ namespace SIAN.Views.EmployeeViews
     /// </summary>
     public partial class ActualTasks : Page
     {
-        System.Timers.Timer timer = new System.Timers.Timer();
+        
         public ActualTasks()
         {
             InitializeComponent();
-            timer.Interval = 30000;
-            timer.Elapsed += timer_Elapsed;
-            timer.Start();
+           
+           
+            
         }
-        /// <summary>
-        /// Обновление из бд каждые n секунд
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 4).ToList();
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromSeconds(15);
+            dt.Tick += dtTicker;
+            dt.Start();
+        }
+
+        private void dtTicker(object sender, EventArgs e)
+        {
+            TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
+            LVTaskShedule.ItemsSource = null;
+            LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 4).ToList();
+            
         }
     }
 }

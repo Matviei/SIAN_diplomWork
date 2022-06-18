@@ -12,6 +12,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
 >
     <DockPanel Background="#1E1E1E" 
                Margin="7">

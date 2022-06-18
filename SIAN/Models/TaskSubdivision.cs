@@ -23,7 +23,7 @@ namespace SIAN.Models
         public int ID_taskSubdivision { get; set; }
         public string Description { get; set; }
         public Nullable<int> SpentTime { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public int ID_status { get; set; }
         public int ID_subdivision { get; set; }
         public int ID_task { get; set; }

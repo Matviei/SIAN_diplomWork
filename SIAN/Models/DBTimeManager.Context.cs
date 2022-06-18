@@ -27,6 +27,7 @@ namespace SIAN.Models
     
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Level> Level { get; set; }
+        public virtual DbSet<Prioritet> Prioritet { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<StaffStatus> StaffStatus { get; set; }
         public virtual DbSet<Status> Status { get; set; }
@@ -35,6 +36,5 @@ namespace SIAN.Models
         public virtual DbSet<Tasks> Tasks { get; set; }
         public virtual DbSet<TaskSchedule> TaskSchedule { get; set; }
         public virtual DbSet<TaskSubdivision> TaskSubdivision { get; set; }
-        public virtual DbSet<Prioritet> Prioritet { get; set; }
     }
 }

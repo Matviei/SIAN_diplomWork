@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:SIAN.Views.AutorizationViews"
       mc:Ignorable="d" 
       d:DesignHeight="590" d:DesignWidth="390"
-      Title="AutorizationPage">
-
+      Title="AutorizationPage" 
+      >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,11 +18,30 @@
         <StackPanel Grid.Row="1" 
                     VerticalAlignment="Center" 
                     Width="250">
-            <TextBox Style="{StaticResource LoginBoxStyle}"
-                     Margin="10"/>
+            <Grid>
+                <TextBox Style="{StaticResource TextBoxBaseStyle}"
+                  TextChanged="MailTB_TextChanged"
+                     x:Name="MailTB"
+                     
+                     />
+                <TextBlock Margin="35 10 10 10"
+                           Foreground="LightGray"
+                           Text="Введите логин"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           FontFamily="Consolas"
+                           Name="LoginTB"
+                           HorizontalAlignment="Left"
+                           Width="100"
+                           IsHitTestVisible="False"></TextBlock>
+            </Grid>
+           
+            <TextBlock></TextBlock>
+   
             <PasswordBox Style="{StaticResource PasswordBoxStyle}"
                          VerticalContentAlignment="Center"
-                         Margin="10"/>
+                         Margin="10"
+                         Name="PBPassword"/>
             <Button Content="Войти"
                     Name="AutorizationButton" Click="AutorizationButton_Click"
                     Style="{StaticResource ButtonLogOnStyle}"

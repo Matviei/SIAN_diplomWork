@@ -18,8 +18,7 @@ namespace SIAN.Views.AutorizationViews
     /// Логика взаимодействия для AutorizationWindow.xaml
     /// </summary>
     public partial class AutorizationWindow : Window
-    {
-        public AutorizationWindow()
+    { public AutorizationWindow()
         {
             InitializeComponent();
             Frame.NavigationService.Navigate(new VerificationPage());
