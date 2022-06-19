@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -120,43 +120,76 @@
                     <wpf:DefaultTooltip BulletSize="20" Foreground="#252525"></wpf:DefaultTooltip>
                 </wpf:CartesianChart.DataTooltip>
         </wpf:CartesianChart>
-
-    <Button Grid.Row="2" 
-            Width="150"
-            Height="40"
-            VerticalAlignment="Bottom"
-            Margin="10"
-            Style="{StaticResource ButtonLightGrayStyle}">
-        <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    >
-            <Image Source="/Sourses/Add.ico"
-                   />
-                <TextBlock VerticalAlignment="Center"
-                           TextWrapping="Wrap"
-                           Width="100"
-                           Margin="3">Добавить сотрудника</TextBlock>
-        </StackPanel>
-    </Button>
-        <Button Grid.Row="2" 
-                Width="150"
-                Height="40"
-                VerticalAlignment="Bottom"
-                Margin="10 10 10 75"
-                Style="{StaticResource ButtonLightGrayStyle}"
-                Name="BTDelete"
-                Click="BTDelete_OnClick">
-            <StackPanel Orientation="Horizontal"
-                        VerticalAlignment="Center"
+    <StackPanel Grid.Row="2"
+                VerticalAlignment="Bottom" 
+                Orientation="Horizontal">
+        <StackPanel VerticalAlignment="Bottom"
+                    Margin="0 50 0 0">
+            <Button Grid.Row="2" 
+                    Width="150"
+                    Height="40"
+                    VerticalAlignment="Bottom"
+                    Margin="10"
+                    Style="{StaticResource ButtonLightGrayStyle}"
+                    Name="BTAddEmployee"
+                    Click="BTAddEmployee_Click"
             >
-                <Image Source="/Sourses/Delete.ico"
-                />
-                <TextBlock VerticalAlignment="Center"
-                           TextWrapping="Wrap"
-                           Width="100"
-                           Margin="3 ">Удалить сотрудника</TextBlock>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                >
+                    <Image Source="/Sourses/Add.ico"
+                    />
+                    <TextBlock VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Width="100"
+                               Margin="3">Добавить сотрудника</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" 
+                    Width="150"
+                    Height="40"
+                    VerticalAlignment="Bottom"
+                   Margin="15"
+                    Style="{StaticResource ButtonLightGrayStyle}"
+                    Name="BTDeleteEmployee"
+                    Click="BTDeleteEmployee_Click">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                >
+                    <Image Source="/Sourses/Delete.ico"
+                    />
+                    <TextBlock VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Width="100"
+                               Margin="3 ">Удалить сотрудника</TextBlock>
+                </StackPanel>
+            </Button>
             </StackPanel>
-        </Button>
+        <StackPanel VerticalAlignment="Bottom"
+                    Margin="0 0 0 30">
+            
+            <Button Grid.Row="2" 
+                    Width="150"
+                    Height="40"
+                    VerticalAlignment="Bottom"
+                    Margin="15"
+                    Style="{StaticResource ButtonLightGrayStyle}"
+                    Name="BTEditEmployee"
+                    Click="BTEditEmployee_OnClick">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                >
+                    <Image Source="/Sourses/Edit.ico"
+                    />
+                    <TextBlock VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Width="100"
+                               Margin="3 ">Изменить сотрудника</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        </StackPanel>
+    
     </Grid>
 
 </Page>

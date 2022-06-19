@@ -100,9 +100,30 @@ namespace SIAN.Views.ProjectManagerViews
             Sort();
         }
 
-        private void BTDelete_OnClick(object sender, RoutedEventArgs e)
+        private void BTDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-            
+
+        }
+
+        private void BTAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            AddEmployeeWindow AEW = new AddEmployeeWindow();
+            AEW.ShowDialog();
+            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+        }
+
+
+
+        private void BTEditEmployee_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            if (LVEmployee.SelectedItem != null)
+            {
+                var selected = (LVEmployee.SelectedItem as Employee).ID_employee;
+                EditEmployeeWindow EEW = new EditEmployeeWindow(SelectedEmployee);
+                EEW.ShowDialog();
+                LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+            }
         }
     }
 }

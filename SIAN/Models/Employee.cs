@@ -25,16 +25,14 @@ namespace SIAN.Models
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Number_Phone { get; set; }
-        public Nullable<int> ID_level { get; set; }
-        public string Photo { get; set; }
+        public int ID_level { get; set; }
         public string Mail { get; set; }
         public int ID_subdivision { get; set; }
-        public Nullable<int> ID_staffStatus { get; set; }
+        public int ID_staffStatus { get; set; }
     
-        public virtual Level Level { get; set; }
-        public virtual StaffStatus StaffStatus { get; set; }
-        public virtual Subdivision Subdivision { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskSchedule> TaskSchedule { get; set; }
+        public virtual Level Level { get; set; }
+        public virtual Subdivision Subdivision { get; set; }
     }
 }

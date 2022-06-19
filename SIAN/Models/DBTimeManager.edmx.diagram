@@ -5,20 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="66b7e112a0a84c649a2b9f925307ad53" Name="Diagram1">
-        <EntityTypeShape EntityType="TimeMangerDBModel.Employee" Width="1.5" PointX="3" PointY="9.125" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Level" Width="1.5" PointX="0.75" PointY="12.625" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Prioritet" Width="1.5" PointX="3" PointY="14" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Role" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.StaffStatus" Width="1.5" PointX="0.75" PointY="10.375" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Status" Width="1.5" PointX="0.75" PointY="4.25" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Subdivision" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.Tasks" Width="1.5" PointX="3" PointY="3.75" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.TaskSchedule" Width="1.5" PointX="5.25" PointY="3.125" />
-        <EntityTypeShape EntityType="TimeMangerDBModel.TaskSubdivision" Width="1.5" PointX="8.25" PointY="3.625" />
-        <AssociationConnector Association="TimeMangerDBModel.FK_Employee_Level" />
-        <AssociationConnector Association="TimeMangerDBModel.FK_Employee_StaffStatus" />
-        <AssociationConnector Association="TimeMangerDBModel.FK_Employee_Subdivision" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Employee" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Level" Width="1.5" PointX="7.75" PointY="8.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Prioritet" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Role" Width="1.5" PointX="8.75" PointY="1.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.StaffStatus" Width="1.5" PointX="9.75" PointY="8.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Status" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Subdivision" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="1.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.Tasks" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.TaskSchedule" Width="1.5" PointX="5.25" PointY="3.5" />
+        <EntityTypeShape EntityType="TimeMangerDBModel.TaskSubdivision" Width="1.5" PointX="8.25" PointY="4" />
         <AssociationConnector Association="TimeMangerDBModel.FK_TaskSchedule_Employee" />
         <AssociationConnector Association="TimeMangerDBModel.FK_TaskSchedule_Prioritet" />
         <AssociationConnector Association="TimeMangerDBModel.FK_Tasks_Status" />
@@ -28,6 +25,8 @@
         <AssociationConnector Association="TimeMangerDBModel.FK_TaskSchedule_Tasks" />
         <AssociationConnector Association="TimeMangerDBModel.FK_TaskSubdivision_Tasks" />
         <AssociationConnector Association="TimeMangerDBModel.FK_TaskSchedule_TaskSubdivision" />
+        <AssociationConnector Association="TimeMangerDBModel.FK_Employee_Level" />
+        <AssociationConnector Association="TimeMangerDBModel.FK_Employee_Subdivision" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

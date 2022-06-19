@@ -19,9 +19,9 @@
                     VerticalAlignment="Center" 
                     Width="250">
             <Grid>
-                <TextBox Style="{StaticResource TextBoxBaseStyle}"
-                  TextChanged="MailTB_TextChanged"
-                     x:Name="MailTB"
+                <TextBox
+                    TextChanged="MailTB_TextChanged"
+                    x:Name="MailTB"
                      
                      />
                 <TextBlock Margin="35 10 10 10"
@@ -43,7 +43,8 @@
                          Margin="10"
                          Name="PBPassword"/>
             <Button Content="Войти"
-                    Name="AutorizationButton" Click="AutorizationButton_Click"
+                    Name="AutorizationButton" 
+                    Click="AutorizationButton_Click"
                     Style="{StaticResource ButtonLogOnStyle}"
                     Margin="10"/>
 

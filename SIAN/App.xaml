@@ -12,7 +12,7 @@
                 <ResourceDictionary Source="/Themes/TitleBarStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/TextBoxBaseStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/PasswordBoxStyle.xaml"/>
-                 <ResourceDictionary Source="/Themes/PasswordLogOnStyle.xaml"/>
+                 <ResourceDictionary Source="/Themes/ButtonLogOnStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/RadioButtonStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/ButtonLightGray.xaml"/>
 

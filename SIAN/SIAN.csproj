@@ -168,6 +168,12 @@
     <Compile Include="Views\PersonalAccount\PersonalAccountWindow.xaml.cs">
       <DependentUpon>PersonalAccountWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProjectManagerViews\AddEmployeeWindow.xaml.cs">
+      <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectManagerViews\EditEmployeeWindow.xaml.cs">
+      <DependentUpon>EditEmployeeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProjectManagerViews\EmployeePage.xaml.cs">
       <DependentUpon>EmployeePage.xaml</DependentUpon>
     </Compile>
@@ -234,7 +240,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\PasswordLogOnStyle.xaml">
+    <Page Include="Themes\ButtonLogOnStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,6 +288,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProjectManagerViews\AddEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectManagerViews\EditEmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProjectManagerViews\EmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -306,6 +320,8 @@
       <DependentUpon>DBTimeManager.edmx</DependentUpon>
       <LastGenOutput>DBTimeManager.cs</LastGenOutput>
     </Content>
+    <Resource Include="Sourses\Refresh.ico" />
+    <Resource Include="Sourses\Edit.ico" />
     <Resource Include="Sourses\Delete.ico" />
     <Resource Include="Sourses\Add.ico" />
   </ItemGroup>

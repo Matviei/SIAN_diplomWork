@@ -14,16 +14,7 @@ namespace SIAN.Models
     
     public partial class StaffStatus
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StaffStatus()
-        {
-            this.Employee = new HashSet<Employee>();
-        }
-    
         public int ID_staffStatus { get; set; }
         public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

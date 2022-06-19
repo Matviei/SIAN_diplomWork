@@ -23,5 +23,30 @@ namespace SIAN.Views.PersonalAccount
         {
             InitializeComponent();
         }
+        private void BTCloseApp_OnClick(object sender, RoutedEventArgs e)
+        {
+           this.Close();
+        }
+
+        private void BTMAximazeApp_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+
+            }
+            else this.WindowState = WindowState.Maximized;
+
+        }
+
+        private void BTMinimazeApp_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

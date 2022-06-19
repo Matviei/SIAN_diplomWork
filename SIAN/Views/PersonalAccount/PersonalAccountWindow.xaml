@@ -63,6 +63,9 @@
                 <ColumnDefinition/>
                 
             </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Image ></Image>
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>
