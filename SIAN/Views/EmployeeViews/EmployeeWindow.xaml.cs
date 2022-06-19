@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace SIAN.Views.EmployeeViews
 {
     /// <summary>
@@ -37,6 +38,7 @@ namespace SIAN.Views.EmployeeViews
 
             }
             else this.WindowState = WindowState.Maximized;
+            
         }
 
         private void BTMinimazeApp_OnClick(object sender, RoutedEventArgs e)
@@ -57,10 +59,8 @@ namespace SIAN.Views.EmployeeViews
 
         private void Exit_Checked(object sender, RoutedEventArgs e)
         {
-            AutorizationViews.AutorizationWindow AW = new AutorizationViews.AutorizationWindow();
-            this.Close();
-            AW.Show();
-            
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }

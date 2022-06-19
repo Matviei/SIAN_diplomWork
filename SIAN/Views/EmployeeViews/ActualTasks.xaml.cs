@@ -48,7 +48,6 @@ namespace SIAN.Views.EmployeeViews
             TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
             LVTaskShedule.ItemsSource = null;
             LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 4).ToList();
-            
         }
     }
 }

@@ -64,9 +64,8 @@ namespace SIAN.Views.ProjectManagerViews
 
         private void Exit_Checked(object sender, RoutedEventArgs e)
         {
-            AutorizationViews.AutorizationWindow AW = new AutorizationViews.AutorizationWindow();
-            this.Close();
-            AW.Show();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }

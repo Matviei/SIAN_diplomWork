@@ -12,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SIAN.Views.AutorizationViews
+namespace SIAN.Views.PersonalAccount
 {
     /// <summary>
-    /// Логика взаимодействия для AutorizationWindow.xaml
+    /// Логика взаимодействия для PersonalAccountWindow.xaml
     /// </summary>
-    public partial class AutorizationWindow : Window
-    { public AutorizationWindow()
+    public partial class PersonalAccountWindow : Window
+    {
+        public PersonalAccountWindow()
         {
             InitializeComponent();
-            Frame.NavigationService.Navigate(new VerificationPage());
-        }
-
-
-        private void ShotdownButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

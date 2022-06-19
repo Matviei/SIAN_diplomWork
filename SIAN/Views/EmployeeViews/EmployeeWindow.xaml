@@ -11,8 +11,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         ResizeMode="CanResize"
-        Width="800"
-        Height="450">
+        Width="1000"
+        Height="600">
 
     <DockPanel Background="#1E1E1E" 
                Margin="7">

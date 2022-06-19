@@ -22,6 +22,8 @@ namespace SIAN.Views.AutorizationViews
     /// <summary>
     /// Логика взаимодействия для VerificationPage.xaml
     /// </summary>
+    
+    
     public partial class VerificationPage : Page
     {
         public VerificationPage()
@@ -29,6 +31,7 @@ namespace SIAN.Views.AutorizationViews
             InitializeComponent();
             
         }
+        ProjectManagerWindow projectManager;
         private void PasswordRetrivalButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PasswordRecoveryPage());
@@ -46,6 +49,7 @@ namespace SIAN.Views.AutorizationViews
                 switch (user.ID_subdivision)
                 {
                     case 1:
+                       
                         ProjectManagerWindow PW = new ProjectManagerWindow();
                         PW.Show();
                         Application.Current.MainWindow.Close();

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SIAN.Views.EmployeeViews"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="560" d:DesignWidth="800"
       Title="ActualTasks" Loaded="Page_Loaded"
       >
 
@@ -15,31 +15,34 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock> ghjg</TextBlock>
-            <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"
-                      Name="LVTaskShedule" >
+            <ListView Grid.Row="1"
+                      Name="LVTaskShedule" d:ItemsSource="{d:SampleData ItemCount=5}" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="2"></UniformGrid>
+                        <UniformGrid Name="UnifGrid" Columns="2"></UniformGrid>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="LightGray"
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{Binding ColorTaskSchedule}"
                                 BorderThickness="1"
-                                Margin="30">
-                            <StackPanel Margin="15">
+                                Margin="50 10 10 10"
+                            
+                            >
+                        <StackPanel Margin="15">
 
-                            <TextBlock Text="{Binding Tasks.Primary_goal, StringFormat= {} Проект: {0}}"
+                            <TextBlock Text="{Binding Tasks.Primary_goal, StringFormat= {} Проект:  {0}}"
                                            FontSize="15"
                                            HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Description}"/>
-                            <TextBlock Text="{Binding Date, StringFormat={}Дата выдачи задания: {0}}"/>
-                                <TextBlock Text="{Binding Deadline,StringFormat = {}Выполнить до: {0}}"/>
+                            <TextBlock Text="{Binding Description}"/>
+                            <TextBlock Text="{Binding CultureDateStart, StringFormat={}Дата выдачи задания: {0}}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding CultureDateEnd,StringFormat = {}Выполнить до: {0}}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Employee.Name }"></TextBlock>
                         </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         
         
