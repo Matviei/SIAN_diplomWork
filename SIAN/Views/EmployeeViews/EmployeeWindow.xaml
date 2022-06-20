@@ -75,7 +75,7 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetProperty="(Border.Width)" 
-                                                         To="150"
+                                                         To="175"
                                                          Duration="0:0:.1"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -117,13 +117,15 @@
                              Name="RBEmployeePage"
                              
                              />
-                <RadioButton Content="..."
-                             
+                <RadioButton Content="Личный кабинет"
+                             extensions:Extensions.Icon="💁" 
                              Padding="5 2.5 8 0"
                              FontSize="16"
                              FontWeight="Normal"
                              Foreground="LightGray"
-                             Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+                             Cursor="Hand"
+                             Name="RBEmployeeCabinet"
+                             Checked="RBEmployeeCabinet_OnChecked"/>
                 
                 <RadioButton Content="Выйти"
                              extensions:Extensions.Icon="🚪" 
@@ -133,7 +135,7 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Command="{Binding ShowSettingsView}" Cursor="Hand"
-                             Margin="0 250 0 0" 
+                             Margin="0 395 0 0" 
                              Name="Exit" Checked="Exit_Checked"/>
             </StackPanel>
         </Border>

@@ -50,7 +50,7 @@ namespace SIAN.Views.ProjectManagerViews
         {
             if (LVProject.SelectedItem != null)
             {
-                var select = LVProject.SelectedItem as Tasks;
+                var select = LVProject.SelectedItem as Models.Tasks;
                 _seriesCollection = ProjectChartCtor.ChartProject(select);
                 PieChart.Series = _seriesCollection;
                 LVTaskSubdivixion.ItemsSource = DB_connect.db_connect.db.TaskSubdivision

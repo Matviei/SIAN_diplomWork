@@ -1,0 +1,55 @@
+﻿<Window x:Class="SIAN.Views.Tasks.TaskSubdivisionEditAndAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIAN.Views.Tasks"
+        mc:Ignorable="d"
+        Title="TaskSubdivisionEditAndAddWindow" Height="450" Width="350"
+        Background="#1E1E1E"
+        FontFamily="Consolas"
+        Foreground="LightGray"
+        FontSize="16"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Описание задачи</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+            </StackPanel>
+            
+            <TextBox Name="TBDescription"
+                     Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"></TextBox>
+            <TextBlock>Затраченное время</TextBlock>
+            <TextBox Name="TBSpentTime"></TextBox>
+            <TextBlock>Дата формирования задачи</TextBlock>
+            <DatePicker Name="DPDate"></DatePicker>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Статус задачи</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+            </StackPanel>
+            <ComboBox DisplayMemberPath="Description"
+                      Name="CBStatus"></ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Направление</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+            </StackPanel>
+            <ComboBox DisplayMemberPath="Description"
+                      Name="CBSubdivision"></ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Для проекта</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+            </StackPanel>
+            <ComboBox DisplayMemberPath="Primary_goal"
+                      Name="CBTask"></ComboBox>
+            <Button Style="{StaticResource ButtonLogOnStyle}"
+                    Margin="15"
+                    Name="BTSave"
+                    Click="BTSave_OnClick" Cursor="Hand">Сохранить</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

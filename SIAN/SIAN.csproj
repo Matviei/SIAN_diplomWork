@@ -8,6 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SIAN</RootNamespace>
     <AssemblyName>SIAN</AssemblyName>
+	<LangVersion>preview</LangVersion>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -90,6 +91,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB_connect\db_connect.cs" />
+    <Compile Include="Models\ColorStatus.cs" />
     <Compile Include="Models\DBTimeManager.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +184,15 @@
     </Compile>
     <Compile Include="Views\ProjectManagerViews\StatistikPage.xaml.cs">
       <DependentUpon>StatistikPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskEditAndAddWindow.xaml.cs">
+      <DependentUpon>TaskEditAndAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskSheduleEditAndAddWindow.xaml.cs">
+      <DependentUpon>TaskSheduleEditAndAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskSubdivisionEditAndAddWindow.xaml.cs">
+      <DependentUpon>TaskSubdivisionEditAndAddWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +316,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProjectManagerViews\StatistikPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\TaskEditAndAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\TaskSheduleEditAndAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\TaskSubdivisionEditAndAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

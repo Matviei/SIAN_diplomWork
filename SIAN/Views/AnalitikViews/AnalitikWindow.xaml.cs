@@ -22,6 +22,7 @@ namespace SIAN.Views.AnalitikViews
         public AnalitikWindow()
         {
             InitializeComponent();
+            RBStatiscikPage.IsChecked = true;
         }
 
         private void BTCloseApp_OnClick(object sender, RoutedEventArgs e)
@@ -47,6 +48,12 @@ namespace SIAN.Views.AnalitikViews
         private void UIElement_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+
+        private void RBStatiscikPage_OnChecked(object sender, RoutedEventArgs e)
+        {
+            FrameContent.NavigationService.Navigate(new ActualTaskPage());
         }
     }
 }

@@ -31,7 +31,6 @@ namespace SIAN.Views.AutorizationViews
             InitializeComponent();
             
         }
-        ProjectManagerWindow projectManager;
         private void PasswordRetrivalButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PasswordRecoveryPage());

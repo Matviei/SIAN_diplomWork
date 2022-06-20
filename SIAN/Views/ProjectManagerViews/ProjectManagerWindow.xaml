@@ -75,7 +75,7 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetProperty="(Border.Width)" 
-                                                         To="150"
+                                                         To="175"
                                                          Duration="0:0:.1"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -117,8 +117,8 @@
                              Name="RBEmployeePage"
                              Checked="RBEmployeePage_OnChecked"
                              />
-                <RadioButton Content="..."
-                             
+                <RadioButton Content="Личный кабинет"
+                             extensions:Extensions.Icon="💁" 
                              Padding="5 2.5 8 0"
                              FontSize="16"
                              FontWeight="Normal"

@@ -10,8 +10,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         ResizeMode="CanResize"
-        Width="800"
-        Height="450">
+        Width="1000"
+        Height="600">
 
     <DockPanel Background="#1E1E1E" 
                Margin="7">
@@ -74,7 +74,7 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetProperty="(Border.Width)" 
-                                                         To="150"
+                                                         To="175"
                                                          Duration="0:0:.1"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -105,7 +105,7 @@
                              Foreground="LightGray"
                              
                              Name="RBStatiscikPage"
-                             
+                             Checked="RBStatiscikPage_OnChecked"
                              Cursor="Hand"/>
                 <RadioButton Content="Сотрудники"
                              extensions:Extensions.Icon="🙆" 

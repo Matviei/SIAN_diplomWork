@@ -16,6 +16,7 @@
                  <ResourceDictionary Source="/Themes/RadioButtonStyle.xaml"/>
                  <ResourceDictionary Source="/Themes/ButtonLightGray.xaml"/>
 
+
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>

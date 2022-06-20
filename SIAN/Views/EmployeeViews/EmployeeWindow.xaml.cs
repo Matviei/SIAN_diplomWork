@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SIAN.Views.PersonalAccount;
 
 
 namespace SIAN.Views.EmployeeViews
@@ -61,6 +62,12 @@ namespace SIAN.Views.EmployeeViews
         {
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
+        }
+
+        private void RBEmployeeCabinet_OnChecked(object sender, RoutedEventArgs e)
+        {
+            PersonalAccount.PersonalAccountWindow PAW = new PersonalAccountWindow();
+            PAW.ShowDialog();
         }
     }
 }

@@ -105,7 +105,7 @@
                     <Button Style="{StaticResource ButtonLogOnStyle}"
                             Margin="0 25"
                             Name="BTSaveEmployee"
-                            Click="BTSaveEmployee_OnClick">Добавить</Button>
+                            Click="BTSaveEmployee_OnClick" Cursor="Hand">Добавить</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

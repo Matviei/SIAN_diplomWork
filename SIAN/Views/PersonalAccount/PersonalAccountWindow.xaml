@@ -8,7 +8,10 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        ResizeMode="CanResize" Height="450" Width="800">
+        ResizeMode="CanResize" Height="450" Width="800"
+        Foreground="LightGray"
+        FontFamily="Consolas"
+        FontSize="16">
     <DockPanel Background="#1E1E1E" 
                Margin="7">
 
@@ -59,12 +62,80 @@
         </Border>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
                 
             </Grid.ColumnDefinitions>
-            <StackPanel>
-                <Image ></Image>
+            <StackPanel 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock Margin="10 0">Фамилия</TextBlock>
+                <TextBox Name="TBSurname"
+                         IsEnabled="False"
+                ></TextBox>
+                <TextBlock Margin="10 0">Имя</TextBlock>
+                <TextBox Name="TBName"
+                         IsEnabled="False"></TextBox>
+                <TextBlock Margin="10 0">Номер телефона</TextBlock>
+                <TextBox Name="TBNumberPhone"
+                         MaxLength="10"
+                         IsEnabled="False"></TextBox>
+                <TextBlock Margin="10 0">Почта</TextBlock>
+                <TextBox Name="TBMail"
+                         IsEnabled="False"></TextBox>
+
+                <Button Style="{StaticResource ButtonLightGrayStyle}"
+                        Margin="15"
+                        Name="BTEditEmployee"
+                        Click="BTEditEmployee_OnClick">
+                    <TextBlock TextWrapping="Wrap" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center" 
+                               TextAlignment="Center"
+                                   
+                                   
+                    >Изменить данные</TextBlock>
+                </Button>
+
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center"
+                            Visibility="Hidden"
+                            Name="SPPasswordRetrieval">
+                    <TextBlock>Старый пароль</TextBlock>
+                    <TextBox Name="TBStartPassword"></TextBox>
+                    <TextBlock>Новый пароль</TextBlock>
+                    <TextBox Name="TBNewPassword1"></TextBox>
+                    <TextBlock>Повторите новый пароль</TextBlock>
+                    <TextBox Name="TBNewPassword2"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Button Style="{StaticResource ButtonLightGrayStyle}"
+                            Margin="15"
+                            Name="BTEditPassword"
+                            Click="BTEditPassword_OnClick" Cursor="Hand">
+                        <TextBlock TextWrapping="Wrap" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" 
+                                   TextAlignment="Center"
+                                   
+                                   
+                        >Изменить пароль</TextBlock>
+                    </Button>
+                    <Button Style="{StaticResource ButtonLogOnStyle}"
+                            Margin="25"
+                            Name="BTSave"
+                            Click="BTSave_OnClick">
+                        <TextBlock TextWrapping="Wrap" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" 
+                                   TextAlignment="Center"
+                                   
+                                   
+                        >Сохранить всё</TextBlock>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </DockPanel>

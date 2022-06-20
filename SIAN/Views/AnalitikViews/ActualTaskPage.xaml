@@ -6,9 +6,170 @@
       xmlns:local="clr-namespace:SIAN.Views.AnalitikViews"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ActualTaskPage">
+      Title="ActualTaskPage"
+      Foreground="LightGray"
+      FontFamily="Consolas"
+      FontSize="16">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+            <TextBlock VerticalAlignment="Top" Margin="25 0">Проекты</TextBlock>
+            <ListView Name="LVProject" d:ItemsSource="{d:SampleData ItemCount=55}" 
+                      Margin="20"
+                       
+                      SelectionChanged="LVProject_OnSelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="2"
+                                BorderBrush="{Binding Status.ColorStatus}"
+                                BorderThickness="1">
+                            <StackPanel Margin="5">
+                                <TextBlock Text="{Binding Primary_goal}"
+                                           TextWrapping="Wrap"
+                                           Width="300"
+                                           FontSize="16"
+                                           />
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap"
+                                           Width="300"
+                                           />
+                                <TextBlock Text="{Binding AllSpentTime, StringFormat={}Затраченное время {0} ч.}"/>
+                                <TextBlock Text="{Binding BeginningOfWork, StringFormat={}Дата начала: {0:d}}"/>
+                                <TextBlock Text="{Binding EndOfWork, StringFormat={}Дата окончания: {0:d}}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ContextMenu >
+                    <ContextMenu Background="#252525" Foreground="LightGray" FontFamily="Consolas" FontSize="14">
+                        <MenuItem Header="Добавить" Name="MIAddProject" Click="MIAddProject_OnClick"  ></MenuItem>
+                        <MenuItem Header="Редактировать" Name="MIEditProject" Click="MIEditProject_OnClick"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+        
+        
+            <TextBlock Grid.Row="1"
+                       Margin="25 0">Задания для направлений</TextBlock>
+            <ListView Name="LVTaskSubdivixion" 
+                      SelectionChanged="LVTaskSubdivixion_OnSelectionChanged"
+                      
+                      Margin="20" d:ItemsSource="{d:SampleData ItemCount=5}"
+                      Grid.Row="1"
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1"
+                                BorderBrush="{Binding Status.ColorStatus}">
+                            <StackPanel 
+                                        Margin="5">
+                                <TextBlock Text="{Binding Subdivision.Description, StringFormat={}Для направления: {0}}"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"
+                                           Width="300" 
+                                           FontWeight="Bold"
+                                           FontSize="14"/>
+                                <TextBlock Text="{Binding Description}"
+                                           HorizontalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           Width="300"
+                                           FontSize="15"/>
+                                <TextBlock Text="{Binding Date, StringFormat={}Дата создания задачи: {0:d}}"/>
+                                <TextBlock Text="{Binding SpentTime, StringFormat={}Затраченное время: {0}}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ContextMenu >
+                    <ContextMenu Background="#252525" Foreground="LightGray" FontFamily="Consolas" FontSize="14">
+                        <MenuItem Header="Добавить" Name="MIAddTaskSubdivision" Click="MIAddTaskSubdivision_OnClick"  ></MenuItem>
+                        <MenuItem Header="Редактировать" Name="MIEditTaskSubdivision" Click="MIEditTaskSubdivision_OnClick"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+       
+        <StackPanel Grid.RowSpan="2"
+                    Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock VerticalAlignment="Center">Статус задания</TextBlock>
+                <ComboBox 
+                          Name="CBStatus"
+                          Width="150"
+                          Margin="15 0"
+                          SelectionChanged="CBStatus_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="{Binding ColorStatus}"
+                                    BorderThickness="1"
+                                    Margin="2">
+                                <TextBlock Text="{Binding Description}"
+                                           Foreground="{Binding ColorStatus}"
+                                           Margin="2"></TextBlock>
+                            </Border>
+                            
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <ListView 
+                      Name="LVTaskShedule" 
+                      d:ItemsSource="{d:SampleData ItemCount=5}" 
+                      Height="350"
+                      Margin="5 0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Name="UnifGrid" Columns="1"></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="{Binding Status.ColorStatus}"
+                                BorderThickness="1"
+                                Margin="5 10 10 10"
+                            
+                        >
+                            <StackPanel Margin="15">
+
+                                <TextBlock Text="{Binding Description}"
+                                           FontSize="15"
+                                           HorizontalAlignment="Center" 
+                                           FontWeight="Bold"/>
+                                <TextBlock Text="{Binding CultureDateStart, StringFormat={}Дата выдачи задания: {0}}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding CultureDateEnd,StringFormat = {}Выполнить до: {0}}" TextWrapping="Wrap"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Для: "></TextBlock>
+                                    <TextBlock Text="{Binding Employee.Surname }"></TextBlock>
+                                    <TextBlock Text="{Binding Employee.Name }"
+                                               Margin="15 0"></TextBlock>
+                                    
+                                </StackPanel>
+                                <TextBlock Text="{Binding Prioritet.Name , StringFormat={}Приоритет: {0}}"></TextBlock>
+                                <TextBlock Text="{Binding Comment, StringFormat={}Комментарий: {0}}"
+                                           Width="325"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Status.Description,StringFormat={}Статус задания: {0}}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ContextMenu>
+                    <ContextMenu Background="#252525" Foreground="LightGray" FontFamily="Consolas" FontSize="14">
+                    <MenuItem Header="Добавить" Name="MIAddTaskShedule" Click="MIAddTaskShedule_OnClick" ></MenuItem>
+                    <MenuItem Header="Редактировать" Name="MIEditTaskShedule" Click="MIEditTaskShedule_OnClick"></MenuItem>
+                </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+
+            <Button Style="{StaticResource ButtonLightGrayStyle}"
+                    Margin="15">Обновить</Button>
+        </StackPanel>
     </Grid>
 </Page>
