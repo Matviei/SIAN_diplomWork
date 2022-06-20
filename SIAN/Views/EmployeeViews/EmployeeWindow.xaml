@@ -108,15 +108,7 @@
                              Name="RBActualTask"
                              
                              Cursor="Hand" Checked="RBActualTask_Checked"/>
-                <RadioButton Content="Сотрудники"
-                             extensions:Extensions.Icon="🙆" 
-                             Padding="5.6 , 3.5 ,8 ,2"
-                             FontSize="16"
-                             FontWeight="Normal"
-                             Foreground="LightGray"
-                             Name="RBEmployeePage"
-                             
-                             />
+
                 <RadioButton Content="Личный кабинет"
                              extensions:Extensions.Icon="💁" 
                              Padding="5 2.5 8 0"
@@ -135,7 +127,7 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Command="{Binding ShowSettingsView}" Cursor="Hand"
-                             Margin="0 395 0 0" 
+                             Margin="0 435 0 0" 
                              Name="Exit" Checked="Exit_Checked"/>
             </StackPanel>
         </Border>

@@ -14,7 +14,7 @@
 
     <Grid>
         <ListView Grid.Row="1"
-                  Name="LVTaskShedule" d:ItemsSource="{d:SampleData ItemCount=5}" ъ
+                  Name="LVTaskShedule" d:ItemsSource="{d:SampleData ItemCount=5}" 
                   MouseDoubleClick="LVTaskShedule_OnMouseDoubleClick">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

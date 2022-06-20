@@ -54,7 +54,12 @@ namespace SIAN.Views.EmployeeViews
         {
             if (LVTaskShedule.SelectedItem != null)
             {
-
+                var selected = LVTaskShedule.SelectedItem as TaskSchedule;
+                SelectedTaskSheduleWindow STSW = new SelectedTaskSheduleWindow(selected);
+                STSW.Show();
+                TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
+                LVTaskShedule.ItemsSource = null;
+                LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
             }
         }
     }

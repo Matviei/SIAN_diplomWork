@@ -68,6 +68,7 @@ namespace SIAN.Views.EmployeeViews
         {
             PersonalAccount.PersonalAccountWindow PAW = new PersonalAccountWindow();
             PAW.ShowDialog();
+            RBActualTask.IsChecked = true;
         }
     }
 }

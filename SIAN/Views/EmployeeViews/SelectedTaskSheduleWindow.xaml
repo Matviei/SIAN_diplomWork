@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIAN.Views.EmployeeViews"
         mc:Ignorable="d"
-        Title="SelectedTaskSheduleWindow" Height="450" Width="800">
+        Title="SelectedTaskSheduleWindow" Height="550" Width="650"
+        Background="#1E1E1E"
+        FontFamily="Consolas"
+        Foreground="LightGray"
+        FontSize="16"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock>Проект:</TextBlock>
+            <TextBox Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"
+                     IsEnabled="False"
+                     Name="TBProjectName"></TextBox>
+            <TextBlock>Оисание:</TextBlock>
+            <TextBox Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"
+                     IsEnabled="False"
+                     Name="TBDecriptionTask"></TextBox>
+            <TextBlock>Задание для направления</TextBlock>
+            <TextBox Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"
+                     IsEnabled="False"
+                     Name="TBTaskSubdivision"></TextBox>
+            <Button Style="{StaticResource ButtonLightGrayStyle}"
+                    Margin="15"
+                    Name="BTBack"
+                    Click="BTBack_OnClick">Вернуться</Button>
+            <Button Style="{StaticResource ButtonLogOnStyle}"
+                    Margin="15"
+                    Name="BTSave"
+                    Click="BTSave_OnClick">Завершить</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock>Личное задание</TextBlock>
+            <TextBox Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"
+                     IsEnabled="False"
+                     Name="TBNameTaskshedule"></TextBox>
+            <TextBlock>Дата выдачи</TextBlock>
+            <TextBox IsEnabled="False"
+                     Name="TBDateStart"></TextBox>
+            <TextBlock>Выполнить до:</TextBlock>
+            <TextBox IsEnabled="False"
+                     Name="TBDateEnd"></TextBox>
+            <TextBlock>Приоритет:</TextBlock>
+            <TextBox IsEnabled="False"
+                     Name="TBPrioritet"></TextBox>
+            <TextBlock>Комменарий (указать)</TextBlock>
+            <TextBox Style="{StaticResource TBDescription}"
+                     TextWrapping="Wrap"
+                     Name="TBComment"></TextBox>
+            <TextBlock>Время выполнения (указать) в часах</TextBlock>
+            <TextBox Name="TBTime"></TextBox>
+
+        </StackPanel>
     </Grid>
 </Window>

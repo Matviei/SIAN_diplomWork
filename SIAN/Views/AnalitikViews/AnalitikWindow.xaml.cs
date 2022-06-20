@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SIAN.Views.PersonalAccount;
 
 namespace SIAN.Views.AnalitikViews
 {
@@ -54,6 +55,19 @@ namespace SIAN.Views.AnalitikViews
         private void RBStatiscikPage_OnChecked(object sender, RoutedEventArgs e)
         {
             FrameContent.NavigationService.Navigate(new ActualTaskPage());
+        }
+
+        private void RBExit_OnChecked(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
+
+        private void RBKabinet_OnChecked(object sender, RoutedEventArgs e)
+        {
+            PersonalAccountWindow PAW = new PersonalAccountWindow();
+            PAW.ShowDialog();
+            RBStatiscikPage.IsChecked = true;
         }
     }
 }

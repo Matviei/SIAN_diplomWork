@@ -123,7 +123,18 @@
                              FontSize="16"
                              FontWeight="Normal"
                              Foreground="LightGray"
-                             Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+                             Cursor="Hand"
+                             Name="RBKabinet"
+                             Checked="RBKabinet_OnChecked"/>
+                <RadioButton Content="Задания"
+                             extensions:Extensions.Icon="🖊" 
+                             Padding="5 2.5 8 0"
+                             FontSize="16"
+                             FontWeight="Normal"
+                             Foreground="LightGray"
+                             Cursor="Hand"
+                             Name="RBActualTasks"
+                             Checked="RBActualTasks_OnChecked"/>
                 <RadioButton Content="Выйти"
                              extensions:Extensions.Icon="🚪" 
                              VerticalAlignment="Bottom"
@@ -132,7 +143,7 @@
                              FontWeight="Normal"
                              Foreground="LightGray"
                              Cursor="Hand"
-                             Margin="0 395 0 0"
+                             Margin="0 355 0 0"
                              Name="Exit" Checked="Exit_Checked"/>
             </StackPanel>
         </Border>

@@ -97,8 +97,8 @@
             </Border.Style>
 
             <StackPanel>
-                <RadioButton Content="Активные"
-                             extensions:Extensions.Icon="📈" 
+                <RadioButton Content="Задания"
+                             extensions:Extensions.Icon="🖊" 
                              Padding="5.6 , 3.5 ,8 ,2"
                              FontSize="16"
                              FontWeight="Normal"
@@ -107,22 +107,27 @@
                              Name="RBStatiscikPage"
                              Checked="RBStatiscikPage_OnChecked"
                              Cursor="Hand"/>
-                <RadioButton Content="Сотрудники"
-                             extensions:Extensions.Icon="🙆" 
+                <RadioButton Content="Личный кабинет"
+                             extensions:Extensions.Icon="💁" 
                              Padding="5.6 , 3.5 ,8 ,2"
                              FontSize="16"
                              FontWeight="Normal"
                              Foreground="LightGray"
-                             Name="RBEmployeePage"
+                             Name="RBKabinet"
+                             Checked="RBKabinet_OnChecked"
                              
                              />
-                <RadioButton Content="..."
+                <RadioButton Content="Выйти"
+                             extensions:Extensions.Icon="🚪" 
+                             Margin="0 435 0 0"
                              
-                             Padding="5 2.5 8 0"
+                             Padding="9.6 2.5 8 0"
                              FontSize="16"
                              FontWeight="Normal"
                              Foreground="LightGray"
-                             Command="{Binding ShowSettingsView}" Cursor="Hand"/>
+                             Name="RBExit"
+                             Checked="RBExit_OnChecked"
+                             Cursor="Hand"/>
             </StackPanel>
         </Border>
 
