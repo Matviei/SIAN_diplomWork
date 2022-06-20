@@ -32,7 +32,6 @@ namespace SIAN.Models
         public virtual DbSet<StaffStatus> StaffStatus { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Subdivision> Subdivision { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tasks> Tasks { get; set; }
         public virtual DbSet<TaskSchedule> TaskSchedule { get; set; }
         public virtual DbSet<TaskSubdivision> TaskSubdivision { get; set; }
