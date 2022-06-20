@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SIAN</RootNamespace>
     <AssemblyName>SIAN</AssemblyName>
-	<LangVersion>preview</LangVersion>
+    <LangVersion>preview</LangVersion>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -167,6 +167,9 @@
     <Compile Include="Views\EmployeeViews\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EmployeeViews\SelectedTaskSheduleWindow.xaml.cs">
+      <DependentUpon>SelectedTaskSheduleWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonalAccount\PersonalAccountWindow.xaml.cs">
       <DependentUpon>PersonalAccountWindow.xaml</DependentUpon>
     </Compile>
@@ -292,6 +295,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EmployeeViews\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeViews\SelectedTaskSheduleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -36,7 +36,7 @@ namespace SIAN.Views.EmployeeViews
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 4).ToList();
+            LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(15);
             dt.Tick += dtTicker;
@@ -47,7 +47,15 @@ namespace SIAN.Views.EmployeeViews
         {
             TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
             LVTaskShedule.ItemsSource = null;
-            LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 4).ToList();
+            LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+        }
+
+        private void LVTaskShedule_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (LVTaskShedule.SelectedItem != null)
+            {
+
+            }
         }
     }
 }

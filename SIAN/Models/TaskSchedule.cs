@@ -22,9 +22,9 @@ namespace SIAN.Models
         public Nullable<int> SpentTime { get; set; }
         public string Description { get; set; }
         public int ID_status { get; set; }
-        public Nullable<int> ID_prioritet { get; set; }
+        public int ID_prioritet { get; set; }
         public Nullable<System.DateTime> Deadline { get; set; }
-        public Nullable<int> ID_task { get; set; }
+        public int ID_task { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Prioritet Prioritet { get; set; }

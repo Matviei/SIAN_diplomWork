@@ -41,7 +41,7 @@ namespace SIAN.Views.ProjectManagerViews
         public EmployeePage()
         {
             InitializeComponent();
-            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.Where(c=>c.ID_staffStatus == 1).ToList();
             
             var StattusList = DB_connect.db_connect.db.Status.ToList();
             StattusList.Insert(0,new Status { Description = "Все"});
@@ -102,14 +102,22 @@ namespace SIAN.Views.ProjectManagerViews
 
         private void BTDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-
+            Employee employee;
+            if (LVEmployee.SelectedItem != null)
+            {
+                employee = LVEmployee.SelectedItem as Employee;
+                employee.ID_staffStatus = 2;
+                DB_connect.db_connect.db.SaveChanges();
+                MessageBox.Show("Сотрудник " + employee.Name + " " + employee.Surname + "отправлен в архив");
+                LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.Where(c => c.ID_staffStatus == 1).ToList();
+            }
         }
 
         private void BTAddEmployee_Click(object sender, RoutedEventArgs e)
         {
             AddEmployeeWindow AEW = new AddEmployeeWindow();
             AEW.ShowDialog();
-            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+            LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.Where(c=>c.ID_staffStatus == 1).ToList();
         }
 
 
@@ -122,7 +130,7 @@ namespace SIAN.Views.ProjectManagerViews
                 var selected = (LVEmployee.SelectedItem as Employee).ID_employee;
                 EditEmployeeWindow EEW = new EditEmployeeWindow(SelectedEmployee);
                 EEW.ShowDialog();
-                LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.ToList();
+                LVEmployee.ItemsSource = DB_connect.db_connect.db.Employee.Where(c => c.ID_staffStatus == 1).ToList();
             }
         }
     }

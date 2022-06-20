@@ -30,9 +30,10 @@ namespace SIAN.Models
         public int ID_subdivision { get; set; }
         public int ID_staffStatus { get; set; }
     
+        public virtual Level Level { get; set; }
+        public virtual StaffStatus StaffStatus { get; set; }
+        public virtual Subdivision Subdivision { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskSchedule> TaskSchedule { get; set; }
-        public virtual Level Level { get; set; }
-        public virtual Subdivision Subdivision { get; set; }
     }
 }

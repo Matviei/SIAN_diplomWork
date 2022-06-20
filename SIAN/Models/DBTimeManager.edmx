@@ -95,9 +95,9 @@
           <Property Name="SpentTime" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ID_status" Type="int" Nullable="false" />
-          <Property Name="ID_prioritet" Type="int" />
+          <Property Name="ID_prioritet" Type="int" Nullable="false" />
           <Property Name="Deadline" Type="date" />
-          <Property Name="ID_task" Type="int" />
+          <Property Name="ID_task" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TaskSubdivision">
           <Key>
@@ -120,6 +120,18 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="ID_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_StaffStatus">
+          <End Role="StaffStatus" Type="Self.StaffStatus" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffStatus">
+              <PropertyRef Name="ID_staffStatus" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_staffStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -160,7 +172,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaskSchedule_Prioritet">
-          <End Role="Prioritet" Type="Self.Prioritet" Multiplicity="0..1" />
+          <End Role="Prioritet" Type="Self.Prioritet" Multiplicity="1" />
           <End Role="TaskSchedule" Type="Self.TaskSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Prioritet">
@@ -184,7 +196,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaskSchedule_Tasks">
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
           <End Role="TaskSchedule" Type="Self.TaskSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tasks">
@@ -259,6 +271,10 @@
             <End Role="Level" EntitySet="Level" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_StaffStatus" Association="Self.FK_Employee_StaffStatus">
+            <End Role="StaffStatus" EntitySet="StaffStatus" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Subdivision" Association="Self.FK_Employee_Subdivision">
             <End Role="Subdivision" EntitySet="Subdivision" />
             <End Role="Employee" EntitySet="Employee" />
@@ -316,6 +332,18 @@
           <EntitySet Name="Tasks" EntityType="TimeMangerDBModel.Tasks" />
           <EntitySet Name="TaskSchedule" EntityType="TimeMangerDBModel.TaskSchedule" />
           <EntitySet Name="TaskSubdivision" EntityType="TimeMangerDBModel.TaskSubdivision" />
+          <AssociationSet Name="FK_Employee_Level" Association="TimeMangerDBModel.FK_Employee_Level">
+            <End Role="Level" EntitySet="Level" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_StaffStatus" Association="TimeMangerDBModel.FK_Employee_StaffStatus">
+            <End Role="StaffStatus" EntitySet="StaffStatus" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Subdivision" Association="TimeMangerDBModel.FK_Employee_Subdivision">
+            <End Role="Subdivision" EntitySet="Subdivision" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_TaskSchedule_Employee" Association="TimeMangerDBModel.FK_TaskSchedule_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="TaskSchedule" EntitySet="TaskSchedule" />
@@ -352,14 +380,6 @@
             <End Role="TaskSubdivision" EntitySet="TaskSubdivision" />
             <End Role="TaskSchedule" EntitySet="TaskSchedule" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Level" Association="TimeMangerDBModel.FK_Employee_Level">
-            <End Role="Level" EntitySet="Level" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Subdivision" Association="TimeMangerDBModel.FK_Employee_Subdivision">
-            <End Role="Subdivision" EntitySet="Subdivision" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -374,9 +394,10 @@
           <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_subdivision" Type="Int32" Nullable="false" />
           <Property Name="ID_staffStatus" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TaskSchedule" Relationship="TimeMangerDBModel.FK_TaskSchedule_Employee" FromRole="Employee" ToRole="TaskSchedule" />
           <NavigationProperty Name="Level" Relationship="TimeMangerDBModel.FK_Employee_Level" FromRole="Employee" ToRole="Level" />
+          <NavigationProperty Name="StaffStatus" Relationship="TimeMangerDBModel.FK_Employee_StaffStatus" FromRole="Employee" ToRole="StaffStatus" />
           <NavigationProperty Name="Subdivision" Relationship="TimeMangerDBModel.FK_Employee_Subdivision" FromRole="Employee" ToRole="Subdivision" />
+          <NavigationProperty Name="TaskSchedule" Relationship="TimeMangerDBModel.FK_TaskSchedule_Employee" FromRole="Employee" ToRole="TaskSchedule" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -407,6 +428,7 @@
           </Key>
           <Property Name="ID_staffStatus" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="TimeMangerDBModel.FK_Employee_StaffStatus" FromRole="StaffStatus" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -424,8 +446,8 @@
           </Key>
           <Property Name="ID_subdivision" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TaskSubdivision" Relationship="TimeMangerDBModel.FK_TaskSubdivision_Subdivision" FromRole="Subdivision" ToRole="TaskSubdivision" />
           <NavigationProperty Name="Employee" Relationship="TimeMangerDBModel.FK_Employee_Subdivision" FromRole="Subdivision" ToRole="Employee" />
+          <NavigationProperty Name="TaskSubdivision" Relationship="TimeMangerDBModel.FK_TaskSubdivision_Subdivision" FromRole="Subdivision" ToRole="TaskSubdivision" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -464,9 +486,9 @@
           <Property Name="SpentTime" Type="Int32" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_status" Type="Int32" Nullable="false" />
-          <Property Name="ID_prioritet" Type="Int32" />
+          <Property Name="ID_prioritet" Type="Int32" Nullable="false" />
           <Property Name="Deadline" Type="DateTime" Precision="0" />
-          <Property Name="ID_task" Type="Int32" />
+          <Property Name="ID_task" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="TimeMangerDBModel.FK_TaskSchedule_Employee" FromRole="TaskSchedule" ToRole="Employee" />
           <NavigationProperty Name="Prioritet" Relationship="TimeMangerDBModel.FK_TaskSchedule_Prioritet" FromRole="TaskSchedule" ToRole="Prioritet" />
           <NavigationProperty Name="Status" Relationship="TimeMangerDBModel.FK_TaskSchedule_Status" FromRole="TaskSchedule" ToRole="Status" />
@@ -489,6 +511,42 @@
           <NavigationProperty Name="Tasks" Relationship="TimeMangerDBModel.FK_TaskSubdivision_Tasks" FromRole="TaskSubdivision" ToRole="Tasks" />
           <NavigationProperty Name="TaskSchedule" Relationship="TimeMangerDBModel.FK_TaskSchedule_TaskSubdivision" FromRole="TaskSubdivision" ToRole="TaskSchedule" />
         </EntityType>
+        <Association Name="FK_Employee_Level">
+          <End Type="TimeMangerDBModel.Level" Role="Level" Multiplicity="1" />
+          <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="ID_level" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_StaffStatus">
+          <End Type="TimeMangerDBModel.StaffStatus" Role="StaffStatus" Multiplicity="1" />
+          <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StaffStatus">
+              <PropertyRef Name="ID_staffStatus" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_staffStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Subdivision">
+          <End Type="TimeMangerDBModel.Subdivision" Role="Subdivision" Multiplicity="1" />
+          <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subdivision">
+              <PropertyRef Name="ID_subdivision" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_subdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TaskSchedule_Employee">
           <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="1" />
           <End Type="TimeMangerDBModel.TaskSchedule" Role="TaskSchedule" Multiplicity="*" />
@@ -502,7 +560,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaskSchedule_Prioritet">
-          <End Type="TimeMangerDBModel.Prioritet" Role="Prioritet" Multiplicity="0..1" />
+          <End Type="TimeMangerDBModel.Prioritet" Role="Prioritet" Multiplicity="1" />
           <End Type="TimeMangerDBModel.TaskSchedule" Role="TaskSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Prioritet">
@@ -562,7 +620,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaskSchedule_Tasks">
-          <End Type="TimeMangerDBModel.Tasks" Role="Tasks" Multiplicity="0..1" />
+          <End Type="TimeMangerDBModel.Tasks" Role="Tasks" Multiplicity="1" />
           <End Type="TimeMangerDBModel.TaskSchedule" Role="TaskSchedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tasks">
@@ -594,30 +652,6 @@
             </Principal>
             <Dependent Role="TaskSchedule">
               <PropertyRef Name="ID_taskSubdivision" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Level">
-          <End Type="TimeMangerDBModel.Level" Role="Level" Multiplicity="1" />
-          <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Level">
-              <PropertyRef Name="ID_level" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="ID_level" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Subdivision">
-          <End Type="TimeMangerDBModel.Subdivision" Role="Subdivision" Multiplicity="1" />
-          <End Type="TimeMangerDBModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subdivision">
-              <PropertyRef Name="ID_subdivision" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="ID_subdivision" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

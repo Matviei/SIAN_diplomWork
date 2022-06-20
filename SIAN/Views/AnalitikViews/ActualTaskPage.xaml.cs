@@ -78,12 +78,20 @@ namespace SIAN.Views.AnalitikViews
 
         private void MIAddTaskShedule_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            TaskSheduleEditAndAddWindow TSW = new TaskSheduleEditAndAddWindow();
+            TSW.ShowDialog();
+            Sort();
         }
 
         private void MIEditTaskShedule_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            if (LVTaskShedule.SelectedItem != null)
+            {
+                var selectedTaskshedule = LVTaskShedule.SelectedItem as TaskSchedule;
+                TaskSheduleEditAndAddWindow TSW = new TaskSheduleEditAndAddWindow(selectedTaskshedule);
+                TSW.ShowDialog();
+                Sort();
+            }
         }
 
 

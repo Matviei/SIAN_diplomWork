@@ -5,8 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIAN.Views.Tasks"
         mc:Ignorable="d"
-        Title="TaskSheduleEditAndAddWindow" Height="450" Width="800">
+        Title="TaskSheduleEditAndAddWindow" WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="600"
+        Background="#1E1E1E"
+        FontFamily="Consolas"
+        Foreground="LightGray"
+        FontSize="16">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Краткое описание</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+            </StackPanel>
+            <TextBox Name="TBDescription"
+                     TextWrapping="Wrap"
+                     Height="80"
+                     Style="{StaticResource TBDescription}"></TextBox>
+
+            <TextBlock>Комментарий:</TextBlock>
+            <TextBox Name="TBComment"
+                     TextWrapping="Wrap"
+                     Height="80"
+                     Style="{StaticResource TBDescription}"></TextBox>
+
+            <TextBlock>Затраченное время</TextBlock>
+            <TextBox Name="TBSpentTime"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Дата формирования задачи</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+                
+            </StackPanel>
+            <DatePicker Name="DPDateStart"></DatePicker>
+            <TextBlock>Выполнить до:</TextBlock>
+            <DatePicker Name="DPDateEnd"></DatePicker>
+        </StackPanel>
+        <StackPanel Grid.Column="1" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Приоритет задачи</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+
+            </StackPanel>
+            <ComboBox Name="CBPrioritet"
+                      DisplayMemberPath="Name"></ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Статус задачи</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+
+            </StackPanel>
+            <ComboBox Name="CBStatus"
+                      DisplayMemberPath="Description"></ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Для проекта</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+
+            </StackPanel>
+            <ComboBox Name="CBTask"
+                      DisplayMemberPath="Description" SelectionChanged="CBTask_SelectionChanged"></ComboBox>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Для блока задач направления</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+
+            </StackPanel>
+            <ComboBox Name="CBTaskSubdivision"
+                      DisplayMemberPath="Description" SelectionChanged="CBTaskSubdivision_SelectionChanged"></ComboBox>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Для сотрудника</TextBlock>
+                <TextBlock Foreground="Red">*</TextBlock>
+
+            </StackPanel>
+            <ComboBox Name="CBEmployee">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Surname}"></TextBlock>
+                            <TextBlock Text="{Binding Name}" Margin="5 0"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Style="{StaticResource ButtonLogOnStyle}"
+                    Margin="25"
+                    Click="BTSave_OnClick">Сохранить</Button>
+        </StackPanel>
     </Grid>
 </Window>

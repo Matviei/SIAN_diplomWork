@@ -26,7 +26,9 @@ namespace SIAN.Views.Tasks
             InitializeComponent();
             DPDate.SelectedDate = DateTime.Now;
             CBStatus.ItemsSource = DB_connect.db_connect.db.Status.ToList();
+            CBStatus.SelectedIndex = 0;
             CBSubdivision.ItemsSource = DB_connect.db_connect.db.Subdivision.ToList();
+
             CBTask.ItemsSource = DB_connect.db_connect.db.Tasks.Where(c=>c.ID_status == 1).ToList();
         }
 
@@ -79,6 +81,11 @@ namespace SIAN.Views.Tasks
                     DB_connect.db_connect.db.SaveChanges();
                     MessageBox.Show("Успех");
                     this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Заполните все поля");
+                    return;
                 }
             }
             else
