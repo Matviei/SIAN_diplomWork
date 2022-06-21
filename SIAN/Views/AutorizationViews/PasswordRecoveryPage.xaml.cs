@@ -58,7 +58,7 @@ namespace SIAN.Views.AutorizationViews
         }
         public static void SendEmail(string email)
         {
-            var fromAddress = new MailAddress("sianprojectmanager@gmail.com", "Восстановление пароля");
+            var fromAddress = new MailAddress("sianprojectmanager@gmail.com", "SIAN");
             var toAddress = new MailAddress(email);
             const string fromPassword = "moveeamqdyvovgir";
 
