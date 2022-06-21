@@ -41,7 +41,7 @@ namespace SIAN.Views.AutorizationViews
 
            
             var user = DB_connect.db_connect.db.Employee
-                .Where(c => c.Mail == MailTB.Text && c.Password == PBPassword.Password).FirstOrDefault();
+                .Where(c => c.Mail == MailTB.Text && c.Password == PBPassword.Password && c.ID_staffStatus == 1).FirstOrDefault();
             if (user != null)
             {
                 SelectedEmployee.Employee = user;
