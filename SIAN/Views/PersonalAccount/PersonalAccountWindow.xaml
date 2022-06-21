@@ -106,9 +106,11 @@
                     <TextBlock>Старый пароль</TextBlock>
                     <TextBox Name="TBStartPassword"></TextBox>
                     <TextBlock>Новый пароль</TextBlock>
-                    <TextBox Name="TBNewPassword1"></TextBox>
+                    <TextBox Name="TBNewPassword1"
+                             MaxLength="10"></TextBox>
                     <TextBlock>Повторите новый пароль</TextBlock>
-                    <TextBox Name="TBNewPassword2"></TextBox>
+                    <TextBox Name="TBNewPassword2"
+                             MaxLength="10"></TextBox>
                 </StackPanel>
                 <StackPanel>
                     <Button Style="{StaticResource ButtonLightGrayStyle}"
