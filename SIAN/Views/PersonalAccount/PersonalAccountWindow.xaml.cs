@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SIAN.Models;
+using SIAN.Services;
 
 namespace SIAN.Views.PersonalAccount
 {
@@ -97,6 +98,11 @@ namespace SIAN.Views.PersonalAccount
             if (TBName.Text.Length > 0 && TBSurname.Text.Length > 0 && TBMail.Text.Length > 0 &&
                 TBNumberPhone.Text.Length > 0)
             {
+                if (!MailChecked.Checked(TBMail.Text))
+                {
+                    MessageBox.Show("Неверный формат почты");
+                    return;
+                }
                 employee.Name = TBName.Text;
                 employee.Surname = TBSurname.Text;
                 employee.Mail = TBMail.Text;

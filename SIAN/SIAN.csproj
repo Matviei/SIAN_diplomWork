@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Services\EmployeeChartCtor.cs" />
     <Compile Include="Services\Extensions.cs" />
+    <Compile Include="Services\MailChecked.cs" />
     <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\ProjectChartCtor.cs" />
     <Compile Include="Views\AnalitikViews\ActualTaskPage.xaml.cs">
