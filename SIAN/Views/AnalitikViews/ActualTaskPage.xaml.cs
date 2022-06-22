@@ -110,6 +110,7 @@ namespace SIAN.Views.AnalitikViews
 
         private void Sort()
         {
+            
             var listTaskSubdivision = DB_connect.db_connect.db.TaskSubdivision.ToList();
             var listTaskShedule = DB_connect.db_connect.db.TaskSchedule.ToList();
             if (SelectedTasks != null)
@@ -184,5 +185,10 @@ namespace SIAN.Views.AnalitikViews
             }
         }
 
+        private void BTRefresh_OnClick(object sender, RoutedEventArgs e)
+        {
+            DB_connect.db_connect.db = new TimeMangerDBEntities();
+            Sort();
+        }
     }
 }

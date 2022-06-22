@@ -137,6 +137,8 @@ namespace SIAN.Views.Tasks
                     CBTaskSubdivision.SelectedItem != null && TBDescription.Text.Length > 0 &&
                     DPDateStart.SelectedDate != null)
                 {
+                    if (DPDateEnd.SelectedDate != null)
+                        date = DPDateEnd.SelectedDate;
                     taskSchedules.ID_status = (CBStatus.SelectedItem as Status).ID_status;
                     taskSchedules.ID_task = (CBTask.SelectedItem as Models.Tasks).ID_task;
                     taskSchedules.Comment = comment;

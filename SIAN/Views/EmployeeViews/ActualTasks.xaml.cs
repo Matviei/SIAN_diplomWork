@@ -45,9 +45,9 @@ namespace SIAN.Views.EmployeeViews
 
         private void dtTicker(object sender, EventArgs e)
         {
-            TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
+            DB_connect.db_connect.db = new TimeMangerDBEntities();
             LVTaskShedule.ItemsSource = null;
-            LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+            LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
         }
 
         private void LVTaskShedule_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -56,10 +56,13 @@ namespace SIAN.Views.EmployeeViews
             {
                 var selected = LVTaskShedule.SelectedItem as TaskSchedule;
                 SelectedTaskSheduleWindow STSW = new SelectedTaskSheduleWindow(selected);
-                STSW.Show();
-                TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
-                LVTaskShedule.ItemsSource = null;
-                LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+                STSW.ShowDialog();
+                //TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
+                //LVTaskShedule.ItemsSource = null;
+                //LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+                LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+                DB_connect.db_connect.db.SaveChanges();
+                
             }
         }
     }

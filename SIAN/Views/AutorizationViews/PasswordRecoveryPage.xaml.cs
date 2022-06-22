@@ -98,7 +98,7 @@ namespace SIAN.Views.AutorizationViews
 
         private void BTSave_OnClick(object sender, RoutedEventArgs e)
         {
-            if (TBNewPassword1.Text == TBNewPassword1.Text)
+            if (TBNewPassword1.Text == TBNewPassword2.Text)
             {
                 employee = Employee;
                 this.DataContext = this;

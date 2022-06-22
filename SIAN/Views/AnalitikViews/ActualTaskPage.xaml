@@ -169,7 +169,9 @@
             </ListView>
 
             <Button Style="{StaticResource ButtonLightGrayStyle}"
-                    Margin="15">Обновить</Button>
+                    Margin="15"
+                    Name="BTRefresh"
+                    Click="BTRefresh_OnClick">Обновить</Button>
         </StackPanel>
     </Grid>
 </Page>
