@@ -11,7 +11,7 @@
         ResizeMode="CanResize" Height="450" Width="800"
         Foreground="LightGray"
         FontFamily="Consolas"
-        FontSize="16">
+        FontSize="16" Icon="/Sourses/SIAN-logo-white.png">
     <DockPanel Background="#1E1E1E" 
                Margin="7">
 

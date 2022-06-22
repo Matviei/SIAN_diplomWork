@@ -11,7 +11,7 @@
         Foreground="LightGray"
         FontSize="16"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="/Sourses/SIAN-logo-white.png">
     <Grid>
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">

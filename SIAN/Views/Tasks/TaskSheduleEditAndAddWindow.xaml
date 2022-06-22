@@ -11,7 +11,7 @@
         Background="#1E1E1E"
         FontFamily="Consolas"
         Foreground="LightGray"
-        FontSize="16">
+        FontSize="16" Icon="/Sourses/SIAN-logo-white.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

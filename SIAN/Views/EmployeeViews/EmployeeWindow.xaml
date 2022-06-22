@@ -12,7 +12,7 @@
         AllowsTransparency="True"
         ResizeMode="CanResize"
         Width="1000"
-        Height="600">
+        Height="600" Icon="/Sourses/SIAN-logo-white.png">
 
     <DockPanel Background="#1E1E1E" 
                Margin="7">
