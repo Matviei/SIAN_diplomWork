@@ -25,7 +25,7 @@ namespace SIAN.Views.EmployeeViews
     /// </summary>
     public partial class ActualTasks : Page
     {
-        
+        DispatcherTimer dt = new DispatcherTimer();
         public ActualTasks()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace SIAN.Views.EmployeeViews
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
-            DispatcherTimer dt = new DispatcherTimer();
+            
             dt.Interval = TimeSpan.FromSeconds(15);
             dt.Tick += dtTicker;
             dt.Start();
@@ -56,10 +56,10 @@ namespace SIAN.Views.EmployeeViews
             {
                 var selected = LVTaskShedule.SelectedItem as TaskSchedule;
                 SelectedTaskSheduleWindow STSW = new SelectedTaskSheduleWindow(selected);
+                dt.Stop();
                 STSW.ShowDialog();
-                //TimeMangerDBEntities dbnew = new TimeMangerDBEntities();
-                //LVTaskShedule.ItemsSource = null;
-                //LVTaskShedule.ItemsSource = dbnew.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
+                dt.Start();
+                DB_connect.db_connect.db = new TimeMangerDBEntities();
                 LVTaskShedule.ItemsSource = DB_connect.db_connect.db.TaskSchedule.Where(c => c.ID_employee == Models.SelectedEmployee.Employee.ID_employee && c.ID_status == 1).ToList();
                 DB_connect.db_connect.db.SaveChanges();
                 
